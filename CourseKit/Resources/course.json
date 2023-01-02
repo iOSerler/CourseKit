@@ -1,0 +1,47 @@
+{
+    "id": 1,
+    "title": "Python Programming",
+    "shortDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting.",
+    "longDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.",
+    "duration": "3h 45min",
+    "progress": 0,
+    "posterSmall": "https://raw.githubusercontent.com/ahrorjabborov/reused_data/main/courseSmallPoster2.png",
+    "posterBig": "https://raw.githubusercontent.com/ahrorjabborov/reused_data/main/courseBigPoster2.png",
+    "isSaved": false,
+    "isPopular": true,
+    "author": "Nursultan Askarbekuly",
+    "sections": [
+        {
+            "id": 1,
+            "title": "Section 1 - Introduction",
+            "lessons": [
+                1,
+                3
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Section 2 - Python Basics",
+            "lessons": [
+                2,
+                4,
+                3
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Section 3 - Advanced Python",
+            "lessons": [
+                5,
+                3
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Section 4 - Final Quiz",
+            "lessons": [
+                6
+            ]
+        }
+    ]
+}
