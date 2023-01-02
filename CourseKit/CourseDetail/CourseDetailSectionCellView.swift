@@ -19,9 +19,11 @@ struct CourseDetailSectionCellView: View {
 
         HStack {
             VStack(alignment: .leading) {
+                
                 Text(section.title)
-                    .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.secondaryTextColor))
+                    .font(.custom(settings.titleFont, size: 20))
+                    .foregroundColor(Color(settings.primaryTextColor))
+                    .padding(.top, 20)
                 
                 ForEach(
                     courseViewModel.getLessonsBySection(

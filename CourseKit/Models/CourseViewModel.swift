@@ -106,5 +106,18 @@ class CourseViewModel: ObservableObject {
             return 0
         }
     }
+    
+    func getFirstUnfinishedLesson(for userId: Int) -> Lesson {
+        for lesson in self.lessons {
+            
+            if getLessonProgress(userId: userId, lessonId: lesson.id) < 1.0 {
+                return lesson
+            }
+            
+            
+        }
+        
+        return lessons.first!
+    }
 
 }

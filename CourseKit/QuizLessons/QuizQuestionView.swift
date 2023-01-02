@@ -40,10 +40,11 @@ struct QuizQuestionView: View {
                     .accentColor( Color(settings.primaryColor))
                     .padding(.horizontal, 20)
                 HStack {
-                    Image("asteriks")
+                    Image(systemName: "asteriks")
+                        .foregroundColor(Color(settings.buttonTextColor))
                     Text("\(currentQuestion.points)")
                         .font(.custom(settings.titleFont, size: 14))
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(settings.buttonTextColor))
                 }
                 .padding(.vertical, 5)
                 .padding(.horizontal, 10)

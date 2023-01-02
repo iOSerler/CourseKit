@@ -15,19 +15,13 @@ struct QuizView: View {
     var courseProgress: Double = 0.0
     var body: some View {
         
-        VStack(alignment: .center, spacing: 30) {
-            ZStack(alignment: .center) {
-                Spacer().background(Color(settings.primaryColor))
-                
-                Text(lesson.title)
-                    .font(.custom(settings.titleFont, size: 18))
-                    .foregroundColor(Color(settings.buttonTextColor))
-                    .padding(.top)
-            }
+        VStack(spacing: 30) {
             
             Text(lesson.quizData!.title)
+                .multilineTextAlignment(.leading)
                 .font(.custom(settings.titleFont, size: 20))
                 .foregroundColor(Color(settings.primaryColor))
+                .padding(.top, 16)
             
             ZStack {
                 RoundedRectangle(cornerRadius: 15)
@@ -51,7 +45,8 @@ struct QuizView: View {
                     HStack {
                         Spacer()
                         
-                        Image("asteriks-circle")
+                        Image(systemName: "asterisk.circle.fill")
+                            .foregroundColor(Color(uiColor:settings.accentColor))
                         Text(String(courseViewModel.getQuizPoints(lessonId: lesson.id))+" Points")
                             .font(.custom(settings.descriptionFont, size: 14))
                         .foregroundColor(Color(settings.primaryTextColor))
@@ -112,6 +107,6 @@ struct QuizView: View {
             })
             
            
-        }.ignoresSafeArea()
+        }.navigationTitle(lesson.title)
     }
 }

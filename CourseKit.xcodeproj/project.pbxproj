@@ -192,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				5CA313F42963136C0086169F /* CourseView.swift */,
-				5CA313E82963136C0086169F /* CourseDetailTopicCellView.swift */,
 				5CA313E92963136C0086169F /* CourseDetailSectionCellView.swift */,
+				5CA313E82963136C0086169F /* CourseDetailTopicCellView.swift */,
 				5CA313EE2963136C0086169F /* CompleteCourseView.swift */,
 				5CA3140D296319E70086169F /* LessonFooterView.swift */,
 			);
@@ -213,8 +213,8 @@
 		5CA313EA2963136C0086169F /* QuizLessons */ = {
 			isa = PBXGroup;
 			children = (
-				5CA313EB2963136C0086169F /* QuizQuestionView.swift */,
 				5CA313EC2963136C0086169F /* QuizView.swift */,
+				5CA313EB2963136C0086169F /* QuizQuestionView.swift */,
 				5CA313ED2963136C0086169F /* QuizAlertView.swift */,
 			);
 			path = QuizLessons;
