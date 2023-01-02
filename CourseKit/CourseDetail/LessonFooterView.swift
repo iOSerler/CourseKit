@@ -14,7 +14,7 @@ struct LessonFooterView: View {
         VStack(alignment: .center) {
             Text(footer.copyrightText)
                 .font(Font.custom(settings.descriptionFont, size: 12))
-                .foregroundColor(Color(settings.copyrightTextColor))
+                .foregroundColor(Color(settings.tertiaryTextColor))
                 .multilineTextAlignment(.center)
                 .frame(width: UIScreen.main.bounds.width/2,
                        alignment: .center)
@@ -29,7 +29,7 @@ struct LessonFooterView: View {
                                 .frame(width: 30, height: 30, alignment: .center)
                             Text(footer.priviousButtonText)
                                 .font(Font.custom(settings.descriptionFont, size: 12))
-                                .foregroundColor(Color(settings.mainTextColor))
+                                .foregroundColor(Color(settings.primaryTextColor))
                         }
                         
                     }
@@ -46,7 +46,7 @@ struct LessonFooterView: View {
                                 .frame(width: 30, height: 30, alignment: .center)
                             Text(footer.nextButtonText)
                                 .font(Font.custom(settings.descriptionFont, size: 12))
-                                .foregroundColor(Color(settings.mainTextColor))
+                                .foregroundColor(Color(settings.primaryTextColor))
                                 .padding(.trailing, 3)
                         }
                         

@@ -17,36 +17,36 @@ struct CourseDetailTopicCellView: View {
     var icon: String {
         switch lesson.type {
         case "text":
-            return viewAssets.documentIcon
+            return "doc.text"
         case "video":
-            return viewAssets.videoIcon
+            return "film"
         default:
-            return viewAssets.quizIcon
+            return "puzzlepiece.extension"
         }
     }
     
     var body: some View {
         
         HStack(alignment: .top) {
-            Image(icon)
+            Image(systemName: icon)
                 .padding(.trailing, 10)
             VStack(alignment: .leading) {
                 Text(lesson.title)
                     .font(.custom(settings.titleFont, size: 14))
-                    .foregroundColor(Color(settings.mainTextColor))
+                    .foregroundColor(Color(settings.primaryTextColor))
                 Text(lesson.description!)
                     .font(.custom(settings.descriptionFont, size: 12))
-                    .foregroundColor(Color(settings.descriptionTextColor))
+                    .foregroundColor(Color(settings.tertiaryTextColor))
                     .multilineTextAlignment(.leading)
                 HStack(alignment: .center) {
                     
                     ProgressView(value: self.progress * 100, total: 100)
-                        .accentColor(self.progress != 1 ? Color(settings.primaryColor) : Color(settings.completeProgressColor))
+                        .accentColor(self.progress != 1 ? Color(settings.primaryColor) : Color(settings.successPrimaryColor))
                         .padding(.trailing, 20)
                     
                     Text("\(Int((self.progress * 100).rounded())) %")
                         .font(.custom(settings.descriptionFont, size: 12))
-                        .foregroundColor(Color(settings.mainTextColor))
+                        .foregroundColor(Color(settings.primaryTextColor))
                         .padding(.trailing, 20)
                 }
                 

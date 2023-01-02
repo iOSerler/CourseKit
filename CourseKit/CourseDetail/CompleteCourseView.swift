@@ -16,17 +16,18 @@ struct CompleteCourseView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 30) {
             
-            Image(viewAssets.completeCourseIcon)
+            Image(systemName:"trophy")
                 .padding(.top, 30)
+                .foregroundColor(Color(settings.primaryColor))
             
             Text("Congratulations!")
                 .font(.custom(settings.titleFont, size: 20))
-                .foregroundColor(Color(settings.mainTextColor))
+                .foregroundColor(Color(settings.primaryTextColor))
             
             Group {
                 Text("You have successfully complete ")
                     .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.descriptionTextColor)) +
+                    .foregroundColor(Color(settings.tertiaryTextColor)) +
                 
                 Text(String(courseTitle))
                     .font(.custom(settings.titleFont, size: 14))
@@ -34,7 +35,7 @@ struct CompleteCourseView: View {
                 
                 Text(". Complete more course like this to earn more points.")
                     .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.descriptionTextColor))
+                    .foregroundColor(Color(settings.tertiaryTextColor))
             }.multilineTextAlignment(.center)
              .fixedSize(horizontal: false, vertical: true)
              .padding(.horizontal, 20)
@@ -53,7 +54,7 @@ struct CompleteCourseView: View {
                     
                     Text("Completion Rate")
                         .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.mainTextColor))
+                        .foregroundColor(Color(settings.primaryTextColor))
                     
                 }.frame(width: UIScreen.main.bounds.width/2 - 10, height: UIScreen.main.bounds.height/8)
                 
@@ -68,7 +69,7 @@ struct CompleteCourseView: View {
                     
                     Text("Scores Earned")
                         .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.mainTextColor))
+                        .foregroundColor(Color(settings.primaryTextColor))
                     
                 }.frame(width: UIScreen.main.bounds.width/2 - 10, height: UIScreen.main.bounds.height/8)
             }.fixedSize()

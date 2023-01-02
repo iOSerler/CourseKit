@@ -10,25 +10,26 @@ import SwiftUI
 struct VideoDescriptionView: View {
     var settings: ViewAssets
     var title: String
-    var durationImage: String
     var duration: String
     var description: String
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(title)
                 .font(Font.custom(settings.titleFont, size: 18))
-                .foregroundColor(Color(settings.mainTextColor))
+                .foregroundColor(Color(settings.primaryTextColor))
             
             HStack {
-                Image(durationImage)
+                Image(systemName: "timer")
+                    .foregroundColor(Color(settings.primaryColor))
                 Text(duration)
                     .font(Font.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.detailsTextColor))
+                    .foregroundColor(Color(settings.secondaryTextColor))
             }
             
             Text(description)
                 .font(Font.custom(settings.descriptionFont, size: 14))
-                .foregroundColor(Color(settings.descriptionTextColor))
+                .foregroundColor(Color(settings.tertiaryTextColor))
         }
     }
 }

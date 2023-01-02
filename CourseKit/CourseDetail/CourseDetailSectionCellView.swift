@@ -21,7 +21,8 @@ struct CourseDetailSectionCellView: View {
             VStack(alignment: .leading) {
                 Text(section.title)
                     .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.detailsTextColor))
+                    .foregroundColor(Color(settings.secondaryTextColor))
+                
                 ForEach(
                     courseViewModel.getLessonsBySection(
                         sectionId: section.id
@@ -37,7 +38,7 @@ struct CourseDetailSectionCellView: View {
                         NavigationLink(destination: VideoLessonView(courseViewModel: courseViewModel, settings: settings, videoLesson: lesson)) {
                             CourseDetailTopicCellView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
                                 .padding(.vertical, 10)
-                            
+
                         }
                     }
                     else if lesson.type == "finalQuiz" {

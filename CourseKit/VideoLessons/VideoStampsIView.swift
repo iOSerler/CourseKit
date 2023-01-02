@@ -13,20 +13,21 @@ struct VideoStampsIView: View {
     var stamps: [VideoLessonStamp]
     @Binding var player: AVPlayer
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
                 Text("Video Stamps")
                     .font(Font.custom(settings.titleFont, size: 18))
-                    .foregroundColor(Color(settings.mainTextColor))
+                    .foregroundColor(Color(settings.primaryTextColor))
                 Text("- Click to watch directly")
                     .font(Font.custom(settings.descriptionFont, size: 12))
-                    .foregroundColor(Color(settings.detailsTextColor))
+                    .foregroundColor(Color(settings.secondaryTextColor))
             }
             
             ForEach(0..<stamps.count, id: \.self) { ind in
                 HStack {
                     Text("\u{2022}")
-                        .foregroundColor(Color(settings.mainTextColor))
+                        .foregroundColor(Color(settings.primaryTextColor))
                     Text(String(stamps[ind].textTime))
                         .font(Font.custom(settings.descriptionFont, size: 14))
                         .foregroundColor(Color(settings.primaryColor))
@@ -39,7 +40,7 @@ struct VideoStampsIView: View {
                     
                     Text(": "+String(stamps[ind].textDescription))
                         .font(Font.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.mainTextColor))
+                        .foregroundColor(Color(settings.primaryTextColor))
                     
                 }
             }

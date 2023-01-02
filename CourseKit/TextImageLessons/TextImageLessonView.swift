@@ -16,18 +16,19 @@ struct TextImageLessonView: View {
     @State private var scrollViewHeight: CGFloat = 0
     @State private var proportion: CGFloat = 0
     var body: some View {
+        
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 Text(textLesson.description!)
                     .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.descriptionTextColor))
+                    .foregroundColor(Color(settings.tertiaryTextColor))
                     .multilineTextAlignment(.leading)
                 HStack {
-                    Image(viewAssets.durationOffIcon)
+                    Image(systemName: "timer")
                     
                     Text(textLesson.duration!)
                         .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.detailsTextColor))
+                        .foregroundColor(Color(settings.secondaryTextColor))
                         .padding(.leading, 10)
                     Spacer()
                 }

@@ -22,24 +22,24 @@ struct CourseDetailView: View {
                     if let detail = courseViewModel.course {
                         Text(detail.title)
                             .font(.custom(settings.titleFont, size: 20))
-                            .foregroundColor(Color(settings.mainTextColor))
+                            .foregroundColor(Color(settings.primaryTextColor))
                         
                         Text(detail.longDescription)
                             .font(.custom(settings.descriptionFont, size: 14))
-                            .foregroundColor(Color(settings.descriptionTextColor))
+                            .foregroundColor(Color(settings.secondaryTextColor))
                             .padding(.top, 20)
                         
                         HStack {
-                            Image(viewAssets.authorIcon)
+                            Image("author")
                             Text(detail.author)
                                 .font(.custom(settings.descriptionFont, size: 14))
-                                .foregroundColor(Color(settings.detailsTextColor))
+                                .foregroundColor(Color(settings.secondaryTextColor))
                             
-                            Image(viewAssets.durationOffIcon)
+                            Image("time-past")
                                 .padding(.leading, 20)
                             Text(detail.duration)
                                 .font(.custom(settings.descriptionFont, size: 14))
-                                .foregroundColor(Color(settings.detailsTextColor))
+                                .foregroundColor(Color(settings.secondaryTextColor))
                             
                             Spacer()
                         }
@@ -53,14 +53,14 @@ struct CourseDetailView: View {
                             
                             Text("\(Int((self.progress * 100).rounded())) %")
                                 .font(.custom(settings.descriptionFont, size: 12))
-                                .foregroundColor(Color(settings.mainTextColor))
+                                .foregroundColor(Color(settings.primaryTextColor))
                                 .padding(.trailing, 20)
                         }
                         
                         
                         Text("Lessons & Topics")
                             .font(.custom(settings.titleFont, size: 20))
-                            .foregroundColor(Color(settings.mainTextColor))
+                            .foregroundColor(Color(settings.primaryTextColor))
                             .padding(.top, 30)
                         ForEach(detail.sections) { section in
                             CourseDetailSectionCellView(courseViewModel: courseViewModel, settings: settings, section: section, showAlert: $showAlert, progress: $progress)
@@ -100,8 +100,9 @@ struct CourseDetailView: View {
                     Text("Continue")
                         .font(.custom(settings.titleFont, size: 14))
                         .foregroundColor(Color(settings.buttonTextColor))
-                    Image(viewAssets.beginCourseButtonIcon)
+                    Image(systemName: "play.fill")
                         .padding(.leading, 10)
+                        .foregroundColor(Color(settings.buttonTextColor))
                 }
                 .frame(width: UIScreen.main.bounds.width / 1.8, height: 40)
                 .background(Color(settings.primaryColor))

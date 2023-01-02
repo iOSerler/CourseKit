@@ -37,7 +37,18 @@ struct VideoLessonView: View {
                 }
                 .onWillDisappear {
                     DispatchQueue.main.async {
-                        courseViewModel.saveLessonProgress(userId: 1, lessonId: self.videoLesson.id, progress: CMTimeGetSeconds(player.currentTime())/CMTimeGetSeconds(player.currentItem!.asset.duration))
+                        
+                        if let itemDuration = player.currentItem?.asset.duration {
+                            
+                            let progress = CMTimeGetSeconds(player.currentTime()) / CMTimeGetSeconds(itemDuration)
+                            
+                            guard progress >= 0 && progress <= 1 else {
+                                return
+                            }
+                            
+                            courseViewModel.saveLessonProgress(userId: 1, lessonId: self.videoLesson.id, progress: progress)
+                        }
+                        
                         
                     }
                 }
@@ -48,8 +59,7 @@ struct VideoLessonView: View {
                     
                     VideoDescriptionView(settings: settings,
                                          title: videoLesson.title,
-                                         durationImage: settings.timeImage,
-                                         duration: videoLesson.duration!,
+                                         duration: videoLesson.duration ?? "",
                                          description: videoLesson.description!)
                     
                     VideoStampsIView(settings: settings,

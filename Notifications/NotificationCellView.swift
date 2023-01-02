@@ -23,17 +23,17 @@ struct NotificationCellView: View {
                     HStack {
                         Text(item.title)
                             .font(.custom(settings.titleFont, size: 14))
-                            .foregroundColor(Color(settings.mainTextColor))
+                            .foregroundColor(Color(settings.primaryTextColor))
                         Spacer()
                         Text(item.time)
                             .font(.custom(settings.descriptionFont, size: 12))
-                            .foregroundColor(Color(settings.primaryLightColor))
+                            .foregroundColor(Color(settings.secondaryColor))
                             .padding(.leading, 5)
                     }
             
                     Text(item.description)
                         .font(.custom(settings.descriptionFont, size: 12))
-                        .foregroundColor(Color(settings.descriptionTextColor))
+                        .foregroundColor(Color(settings.tertiaryTextColor))
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                     

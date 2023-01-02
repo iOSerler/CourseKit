@@ -14,11 +14,10 @@ struct QuizView: View {
     var lesson: Lesson
     var courseProgress: Double = 0.0
     var body: some View {
+        
         VStack(alignment: .center, spacing: 30) {
             ZStack(alignment: .center) {
-                Image(viewAssets.quizHeader)
-                    .resizable()
-                    .scaledToFit()
+                Spacer().background(Color(settings.primaryColor))
                 
                 Text(lesson.title)
                     .font(.custom(settings.titleFont, size: 18))
@@ -37,10 +36,11 @@ struct QuizView: View {
                     HStack {
                         Spacer()
                         
-                        Image(viewAssets.questionMark)
+                        Image(systemName: "questionmark.circle.fill")
+                            .foregroundColor(Color(settings.primaryColor))
                         Text(String(lesson.quizData!.quizQuestions.count)+" Questions")
                             .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.mainTextColor))
+                        .foregroundColor(Color(settings.primaryTextColor))
                         
                         Spacer()
                     }
@@ -51,10 +51,10 @@ struct QuizView: View {
                     HStack {
                         Spacer()
                         
-                        Image(viewAssets.asteriksCircle)
+                        Image("asteriks-circle")
                         Text(String(courseViewModel.getQuizPoints(lessonId: lesson.id))+" Points")
                             .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.mainTextColor))
+                        .foregroundColor(Color(settings.primaryTextColor))
                         
                         Spacer()
                     }
@@ -64,22 +64,22 @@ struct QuizView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("DESCRIPTION")
                         .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.descriptionTextColor))
+                        .foregroundColor(Color(settings.tertiaryTextColor))
                     
                     Text(lesson.quizData!.description)
                         .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.mainTextColor))
+                        .foregroundColor(Color(settings.primaryTextColor))
                     
                     Text("QUESTIONS & TOPICS")
                         .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.descriptionTextColor))
+                        .foregroundColor(Color(settings.tertiaryTextColor))
                     
                     
                     VStack(alignment: .leading, spacing: 15) {
                         ForEach(lesson.quizData!.quizQuestions) { question in
                             HStack {
                                 Text("\u{2022}")
-                                    .foregroundColor(Color(settings.mainTextColor))
+                                    .foregroundColor(Color(settings.primaryTextColor))
                                 
                                 Text(String(question.id + 1))
                                     .font(.custom(settings.descriptionFont, size: 14))
@@ -87,7 +87,7 @@ struct QuizView: View {
                                 
                                 Text(": "+question.questionContent.topic)
                                     .font(.custom(settings.descriptionFont, size: 14))
-                                    .foregroundColor(Color(settings.mainTextColor))
+                                    .foregroundColor(Color(settings.primaryTextColor))
                             }
                         }
                     }

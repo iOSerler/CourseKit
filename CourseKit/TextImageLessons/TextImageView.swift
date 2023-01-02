@@ -16,7 +16,7 @@ struct TextImageView: View {
             if let text = textImage.text {
                 Text(text)
                     .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.mainTextColor))
+                    .foregroundColor(Color(settings.primaryTextColor))
                     .padding(.horizontal, 0)
                     .multilineTextAlignment(.leading)
             }

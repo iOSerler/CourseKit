@@ -71,14 +71,14 @@ struct EmptyListView: View {
     var listType: String
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            Image(settings.notificationBell)
+            Image(systemName: "bell")
                 .padding(.bottom)
             Text("No new "+listType+" right now!")
                 .font(.custom(settings.titleFont, size: 16))
-                .foregroundColor(Color(settings.mainTextColor))
+                .foregroundColor(Color(settings.primaryTextColor))
             Text("You’re all up-to-date. Keep up learning!")
                 .font(.custom(settings.descriptionFont, size: 12))
-                .foregroundColor(Color(settings.descriptionTextColor))
+                .foregroundColor(Color(settings.secondaryTextColor))
             
             Button(
                 action: {

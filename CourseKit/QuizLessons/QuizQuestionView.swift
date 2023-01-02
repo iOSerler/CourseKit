@@ -22,6 +22,7 @@ struct QuizQuestionView: View {
     var lessonId: Int
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
+        
         VStack(alignment: .center) {
             HStack {
                 Button {
@@ -31,35 +32,36 @@ struct QuizQuestionView: View {
                     courseViewModel.saveLessonProgress(userId: 1, lessonId: lessonId, progress: (Double(questionCounter) / Double(quizQuestions.count)))
                     presentationMode.wrappedValue.dismiss()
                 } label: {
-                    Image(viewAssets.cross)
+                    Image(systemName: "xmark")
+                        .foregroundColor(Color(uiColor: settings.primaryColor))
                 }
 
                 ProgressView(value: Double(self.questionCounter + 1), total: Double(quizQuestions.count))
                     .accentColor( Color(settings.primaryColor))
                     .padding(.horizontal, 20)
                 HStack {
-                    Image(viewAssets.asteriks)
+                    Image("asteriks")
                     Text("\(currentQuestion.points)")
                         .font(.custom(settings.titleFont, size: 14))
                         .foregroundColor(.white)
                 }
                 .padding(.vertical, 5)
                 .padding(.horizontal, 10)
-                .background(Color(settings.pinkAccentColor))
+                .background(Color(settings.accentColor))
                 .clipShape(Capsule())
             }
             
             HStack {
                 Text("Question \(currentQuestion.id + 1) of \(quizQuestions.count)")
                     .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.detailsTextColor))
+                    .foregroundColor(Color(settings.secondaryTextColor))
                     .padding(.top, 10)
                 Spacer()
             }
 
             Text(currentQuestion.questionContent.question)
                 .font(.custom(settings.titleFont, size: 16))
-                .foregroundColor(Color(settings.mainTextColor))
+                .foregroundColor(Color(settings.primaryTextColor))
                 .padding(.top, 10)
                 .multilineTextAlignment(.leading)
             
@@ -205,11 +207,12 @@ struct SingleChoiceButtonRow: View {
                 
                 .overlay(RoundedRectangle(cornerRadius: 12)
                     .stroke(
-                        showResult ? (isCorrect ? settings.successMain : (chosen ? settings.errorMain : Color(settings.borderColor))) :
+                        //FIXME: this is unreadable :)
+                        showResult ? (isCorrect ? Color(uiColor: settings.successPrimaryColor) : (chosen ? Color(uiColor: settings.errorPrimaryColor) : Color(settings.borderColor))) :
                             (chosen ? Color(settings.primaryColor) : Color(settings.borderColor)), lineWidth: 2))
                 
                 .background(
-                    showResult ? (isCorrect ? settings.successLighter : (chosen ? settings.errorLighter : .white)) : (chosen ? Color(settings.primaryLighterColor) : .white))
+                    showResult ? (isCorrect ? Color(uiColor: settings.successSecondaryColor) : (chosen ? Color(uiColor: settings.errorSecondaryColor) : .white)) : (chosen ? Color(settings.secondaryColor) : .white))
                 
             }
         )

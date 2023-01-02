@@ -55,6 +55,7 @@
 		5CA3143D29631BAA0086169F /* Rubik-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3142A29631BAA0086169F /* Rubik-ExtraBold.ttf */; };
 		5CA3143E29631BAA0086169F /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3142B29631BAA0086169F /* Rubik-Regular.ttf */; };
 		5CA3143F29631BAA0086169F /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3142C29631BAA0086169F /* Rubik-BoldItalic.ttf */; };
+		5CA3144129635B950086169F /* Learn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3144029635B950086169F /* Learn.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		5CA3142A29631BAA0086169F /* Rubik-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-ExtraBold.ttf"; sourceTree = "<group>"; };
 		5CA3142B29631BAA0086169F /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		5CA3142C29631BAA0086169F /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
+		5CA3144029635B950086169F /* Learn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Learn.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				5CA3141929631BAA0086169F /* lessons.json */,
 				5CA3141C29631BAA0086169F /* Assets.xcassets */,
 				5CA3141D29631BAA0086169F /* course.json */,
+				5CA3144029635B950086169F /* Learn.json */,
 				5CA3141E29631BAA0086169F /* Fonts */,
 			);
 			path = Resources;
@@ -342,6 +345,7 @@
 				5CA3143A29631BAA0086169F /* Rubik-LightItalic.ttf in Resources */,
 				5CA3143E29631BAA0086169F /* Rubik-Regular.ttf in Resources */,
 				5CA3143429631BAA0086169F /* Rubik-SemiBoldItalic.ttf in Resources */,
+				5CA3144129635B950086169F /* Learn.json in Resources */,
 				5CA3143829631BAA0086169F /* Rubik-Black.ttf in Resources */,
 				5CA3143929631BAA0086169F /* Rubik-Italic.ttf in Resources */,
 				5CA3143029631BAA0086169F /* Assets.xcassets in Resources */,
