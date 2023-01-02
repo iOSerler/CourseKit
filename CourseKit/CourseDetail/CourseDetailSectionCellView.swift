@@ -25,6 +25,12 @@ struct CourseDetailSectionCellView: View {
                     .foregroundColor(Color(settings.primaryTextColor))
                     .padding(.top, 20)
                 
+                Text(section.description)
+                    .font(.custom(settings.descriptionFont, size: 14))
+                    .foregroundColor(Color(settings.secondaryTextColor))
+                    .padding(.bottom, 8)
+
+                
                 ForEach(
                     courseViewModel.getLessonsBySection(
                         sectionId: section.id

@@ -14,6 +14,7 @@
         {
             "id": 1,
             "title": "Section 1 - Introduction",
+            "description": "This sections introduces the topic",
             "lessons": [
                 1,
                 3
@@ -22,6 +23,7 @@
         {
             "id": 2,
             "title": "Section 2 - Python Basics",
+            "description": "Learning the basics will help with everything that follows. Get them right!",
             "lessons": [
                 2,
                 4,
@@ -31,6 +33,7 @@
         {
             "id": 3,
             "title": "Section 3 - Advanced Python",
+            "description": "You are ready to learn the super power.",
             "lessons": [
                 5,
                 3
@@ -39,6 +42,7 @@
         {
             "id": 4,
             "title": "Section 4 - Final Quiz",
+            "description": "Validate all your learning.",
             "lessons": [
                 6
             ]

@@ -79,60 +79,26 @@ struct CourseView: View {
                 Spacer()
                 if self.progress > 0.9 {
                     NavigationLink(destination: CompleteCourseView(settings: settings, courseTitle: courseViewModel.course.title, completionRate: (self.progress * 500).rounded()/100, numPoints: 15), label: {
-                        Text("See Stats")
-                            .font(.custom(settings.titleFont, size: 14))
-                            .foregroundColor(Color(settings.buttonTextColor))
+                        ContinueButton(settings: settings)
 
                     })
-                    .frame(width: UIScreen.main.bounds.width / 1.8, height: 50)
-                    .background(Color(settings.primaryColor))
-                    .cornerRadius(25)
-                    .shadow(color: Color(settings.primaryColor), radius: 5)
                 } else {
                     
                     switch courseViewModel.getFirstUnfinishedLesson(for: 1).type {
                     case "text":
                         NavigationLink(destination:  TextImageLessonView(courseViewModel: courseViewModel, settings: settings, textLesson: courseViewModel.getFirstUnfinishedLesson(for: 1)), label: {
-                            Text("Continue")
-                                .font(.custom(settings.titleFont, size: 14))
-                                .foregroundColor(Color(settings.buttonTextColor))
-                            Image(systemName: "play.fill")
-                                .padding(.leading, 10)
-                                .foregroundColor(Color(settings.buttonTextColor))
-                           
+                            ContinueButton(settings: settings)
                        })
-                        .frame(width: UIScreen.main.bounds.width / 1.8, height: 50)
-                        .background(Color(settings.primaryColor))
-                        .cornerRadius(25)
-                        .shadow(color: Color(settings.primaryColor), radius: 5)
+                        
                     case "video":
                         NavigationLink(destination:  VideoLessonView(courseViewModel: courseViewModel, settings: settings, videoLesson: courseViewModel.getFirstUnfinishedLesson(for: 1)), label: {
-                            Text("Continue")
-                                .font(.custom(settings.titleFont, size: 14))
-                                .foregroundColor(Color(settings.buttonTextColor))
-                            Image(systemName: "play.fill")
-                                .padding(.leading, 10)
-                                .foregroundColor(Color(settings.buttonTextColor))
-                           
+                            ContinueButton(settings: settings)
                        })
-                        .frame(width: UIScreen.main.bounds.width / 1.8, height: 50)
-                        .background(Color(settings.primaryColor))
-                        .cornerRadius(25)
-                        .shadow(color: Color(settings.primaryColor), radius: 5)
+                        
                     case "finalQuiz", "quiz":
                         NavigationLink(destination:  QuizView(courseViewModel: courseViewModel, settings: settings, lesson: courseViewModel.getFirstUnfinishedLesson(for: 1)), label: {
-                            Text("Continue")
-                                .font(.custom(settings.titleFont, size: 14))
-                                .foregroundColor(Color(settings.buttonTextColor))
-                            Image(systemName: "play.fill")
-                                .padding(.leading, 10)
-                                .foregroundColor(Color(settings.buttonTextColor))
-                           
-                       })
-                        .frame(width: UIScreen.main.bounds.width / 1.8, height: 50)
-                        .background(Color(settings.primaryColor))
-                        .cornerRadius(25)
-                        .shadow(color: Color(settings.primaryColor), radius: 5)
+                            ContinueButton(settings: settings)
+                        })
                     default:
                         Text("")
                     }
@@ -156,4 +122,23 @@ struct CourseView: View {
     
     
     
+}
+
+struct ContinueButton: View {
+    
+    let settings: ViewAssets
+    
+    var body: some View {
+        HStack {
+            Text("Continue")
+                .font(.custom(settings.titleFont, size: 14))
+                .foregroundColor(Color(settings.buttonTextColor))
+            Image(systemName: "play.fill")
+                .padding(.leading, 10)
+                .foregroundColor(Color(settings.buttonTextColor))
+        }.frame(width: UIScreen.main.bounds.width / 1.8, height: 50)
+            .background(Color(settings.primaryColor))
+            .cornerRadius(25)
+            .shadow(color: Color(settings.primaryColor), radius: 5)
+    }
 }

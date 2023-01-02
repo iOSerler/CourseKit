@@ -24,6 +24,7 @@ struct Course: Identifiable, Decodable {
 struct CourseSection: Identifiable, Decodable {
     var id: Int
     var title: String
+    var description: String
     var lessons: [Int]
 }
 
