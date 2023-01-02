@@ -3,7 +3,7 @@
 //  ReusEd
 //
 //  Created by Ahror Jabborov on 6/15/22.
-//
+//  Modified by Nursultan Askarbekuly on 02.01.2023
 
 import SwiftUI
 
