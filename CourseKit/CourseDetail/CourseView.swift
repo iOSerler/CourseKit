@@ -21,13 +21,8 @@ struct CourseView: View {
                 VStack(alignment: .leading) {
                     if let detail = courseViewModel.course {
                         Text(detail.title)
-                            .font(.custom(settings.titleFont, size: 25))
+                            .font(.custom(settings.titleFont, size: 28))
                             .foregroundColor(Color(settings.primaryTextColor))
-                        
-                        Text(detail.longDescription)
-                            .font(.custom(settings.descriptionFont, size: 14))
-                            .foregroundColor(Color(settings.secondaryTextColor))
-                            .padding(.top, 20)
                         
                         HStack {
                             Image(systemName: "person")
@@ -43,7 +38,7 @@ struct CourseView: View {
                             
                             Spacer()
                         }
-                        .padding(.top, 20)
+                        .padding(.top, 8)
                         
                         HStack(alignment: .center) {
                             
@@ -57,9 +52,14 @@ struct CourseView: View {
                                 .padding(.trailing, 20)
                         }
                         
+                        Text(detail.longDescription)
+                            .font(.custom(settings.descriptionFont, size: 14))
+                            .foregroundColor(Color(settings.secondaryTextColor))
+                            .padding(.top, 4)
+                        
                         
                         ForEach(detail.sections) { section in
-                            CourseDetailSectionCellView(courseViewModel: courseViewModel, settings: settings, section: section, showAlert: $showAlert, progress: $progress)
+                            SectionView(courseViewModel: courseViewModel, settings: settings, section: section, showAlert: $showAlert, progress: $progress)
                         }
                     }
                     Spacer()

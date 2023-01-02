@@ -1,5 +1,5 @@
 //
-//  CourceTopicCellView.swift
+//  LessonRowView.swift
 //  ReusEd
 //
 //  Created by Ahror Jabborov on 6/15/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CourseDetailTopicCellView: View {
+struct LessonRowView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
     @State var lesson: Lesson
@@ -28,8 +28,12 @@ struct CourseDetailTopicCellView: View {
     var body: some View {
         
         HStack(alignment: .top) {
-            Image(systemName: icon)
-                .padding(.trailing, 10)
+            VStack {
+                Image(systemName: icon)
+            }
+            .frame(width: 20)
+            .padding(.trailing, 8)
+            
             VStack(alignment: .leading) {
                 Text(lesson.title)
                     .font(.custom(settings.titleFont, size: 14))
@@ -41,7 +45,7 @@ struct CourseDetailTopicCellView: View {
                 HStack(alignment: .center) {
                     
                     ProgressView(value: self.progress * 100, total: 100)
-                        .accentColor(self.progress != 1 ? Color(settings.primaryColor) : Color(settings.successPrimaryColor))
+                        .accentColor(Int((self.progress * 100).rounded()) != 100 ? Color(settings.primaryColor) : Color(settings.successPrimaryColor))
                         .padding(.trailing, 20)
                     
                     Text("\(Int((self.progress * 100).rounded())) %")

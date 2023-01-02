@@ -1,5 +1,5 @@
 //
-//  CourseDetailSectionCellView.swift
+//  SectionView.swift
 //  ReusEd
 //
 //  Created by Ahror Jabborov on 6/15/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CourseDetailSectionCellView: View {
+struct SectionView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
     var settings: ViewAssets
@@ -28,6 +28,7 @@ struct CourseDetailSectionCellView: View {
                 Text(section.description)
                     .font(.custom(settings.descriptionFont, size: 14))
                     .foregroundColor(Color(settings.secondaryTextColor))
+                    .padding(.top, 4)
                     .padding(.bottom, 8)
 
                 
@@ -38,20 +39,20 @@ struct CourseDetailSectionCellView: View {
                 ) { lesson in
                     if lesson.type == "text" {
                         NavigationLink(destination: TextImageLessonView(courseViewModel: courseViewModel, settings: settings, textLesson: lesson)) {
-                            CourseDetailTopicCellView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
+                            LessonRowView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
                                 .padding(.vertical, 10)
                         }
                     }
                     else if lesson.type == "video"{
                         NavigationLink(destination: VideoLessonView(courseViewModel: courseViewModel, settings: settings, videoLesson: lesson)) {
-                            CourseDetailTopicCellView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
+                            LessonRowView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
                                 .padding(.vertical, 10)
 
                         }
                     }
                     else if lesson.type == "finalQuiz" {
                         NavigationLink(destination: QuizView(courseViewModel: courseViewModel, settings: settings, lesson: lesson)) {
-                            CourseDetailTopicCellView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
+                            LessonRowView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
                                 .padding(.vertical, 10)
 
                         }.disabled(progress >= 0.8 ? false: true)
@@ -63,7 +64,7 @@ struct CourseDetailSectionCellView: View {
                     }
                     else {
                         NavigationLink(destination: QuizView(courseViewModel: courseViewModel, settings: settings, lesson: lesson)) {
-                            CourseDetailTopicCellView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
+                            LessonRowView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
                                 .padding(.vertical, 10)
 
                         }

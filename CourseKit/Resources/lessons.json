@@ -56,7 +56,7 @@
         "id": 2,
         "type": "text",
         "title": "Variables and Data Types",
-        "description": "Learn how to build control flow into your python code by including if, else, and elif statements.",
+        "description": "",
         "duration": "3h 45min",
         "progress": 0,
         "background": "https://raw.githubusercontent.com/ahrorjabborov/reused_data/main/textLessonBackground.png",

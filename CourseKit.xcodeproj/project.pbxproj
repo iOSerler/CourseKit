@@ -23,8 +23,8 @@
 		5CA313F52963136C0086169F /* TextImageLessonSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E52963136C0086169F /* TextImageLessonSectionView.swift */; };
 		5CA313F62963136C0086169F /* TextImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E62963136C0086169F /* TextImageView.swift */; };
 		5CA313F72963136C0086169F /* TextImageLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E72963136C0086169F /* TextImageLessonView.swift */; };
-		5CA313F82963136C0086169F /* CourseDetailTopicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E82963136C0086169F /* CourseDetailTopicCellView.swift */; };
-		5CA313F92963136C0086169F /* CourseDetailSectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E92963136C0086169F /* CourseDetailSectionCellView.swift */; };
+		5CA313F82963136C0086169F /* LessonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E82963136C0086169F /* LessonRowView.swift */; };
+		5CA313F92963136C0086169F /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E92963136C0086169F /* SectionView.swift */; };
 		5CA313FA2963136C0086169F /* QuizQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313EB2963136C0086169F /* QuizQuestionView.swift */; };
 		5CA313FB2963136C0086169F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313EC2963136C0086169F /* QuizView.swift */; };
 		5CA313FC2963136C0086169F /* QuizAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313ED2963136C0086169F /* QuizAlertView.swift */; };
@@ -76,8 +76,8 @@
 		5CA313E52963136C0086169F /* TextImageLessonSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageLessonSectionView.swift; sourceTree = "<group>"; };
 		5CA313E62963136C0086169F /* TextImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageView.swift; sourceTree = "<group>"; };
 		5CA313E72963136C0086169F /* TextImageLessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageLessonView.swift; sourceTree = "<group>"; };
-		5CA313E82963136C0086169F /* CourseDetailTopicCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailTopicCellView.swift; sourceTree = "<group>"; };
-		5CA313E92963136C0086169F /* CourseDetailSectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailSectionCellView.swift; sourceTree = "<group>"; };
+		5CA313E82963136C0086169F /* LessonRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonRowView.swift; sourceTree = "<group>"; };
+		5CA313E92963136C0086169F /* SectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		5CA313EB2963136C0086169F /* QuizQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizQuestionView.swift; sourceTree = "<group>"; };
 		5CA313EC2963136C0086169F /* QuizView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		5CA313ED2963136C0086169F /* QuizAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizAlertView.swift; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				5CA313F42963136C0086169F /* CourseView.swift */,
-				5CA313E92963136C0086169F /* CourseDetailSectionCellView.swift */,
-				5CA313E82963136C0086169F /* CourseDetailTopicCellView.swift */,
+				5CA313E92963136C0086169F /* SectionView.swift */,
+				5CA313E82963136C0086169F /* LessonRowView.swift */,
 				5CA313EE2963136C0086169F /* CompleteCourseView.swift */,
 				5CA3140D296319E70086169F /* LessonFooterView.swift */,
 			);
@@ -378,10 +378,10 @@
 				5CA313DC296313350086169F /* ViewAssetsModel.swift in Sources */,
 				5CA313FF2963136C0086169F /* AutoRotateVideoPlayerView.swift in Sources */,
 				5CA31412296319E70086169F /* LessonFooterView.swift in Sources */,
-				5CA313F92963136C0086169F /* CourseDetailSectionCellView.swift in Sources */,
+				5CA313F92963136C0086169F /* SectionView.swift in Sources */,
 				5CA313FD2963136C0086169F /* CompleteCourseView.swift in Sources */,
 				5CA313D1296313260086169F /* NotificationViewModel.swift in Sources */,
-				5CA313F82963136C0086169F /* CourseDetailTopicCellView.swift in Sources */,
+				5CA313F82963136C0086169F /* LessonRowView.swift in Sources */,
 				5CA313A7296312610086169F /* CourseKitApp.swift in Sources */,
 				5CA313CA296312F30086169F /* ListView.swift in Sources */,
 				5CA313F52963136C0086169F /* TextImageLessonSectionView.swift in Sources */,
