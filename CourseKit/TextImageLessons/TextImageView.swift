@@ -15,7 +15,7 @@ struct TextImageView: View {
         VStack(alignment: .leading) {
             if let text = textImage.text {
                 Text(text)
-                    .font(.custom(settings.descriptionFont, size: 14))
+                    .font(.custom(settings.descriptionFont, size: 16))
                     .foregroundColor(Color(settings.primaryTextColor))
                     .padding(.horizontal, 0)
                     .multilineTextAlignment(.leading)

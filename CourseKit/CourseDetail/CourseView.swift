@@ -1,5 +1,5 @@
 //
-//  CourseDetailView.swift
+//  CourseView.swift
 //  ReusEd
 //
 //  Created by Ahror Jabborov on 6/14/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CourseDetailView: View {
+struct CourseView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
     var settings: ViewAssets
@@ -110,11 +110,12 @@ struct CourseDetailView: View {
                 .shadow(color: Color(settings.primaryColor), radius: 10)
             }
             
+            
             if showAlert {
                 ZStack {
                     Rectangle()
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
-                        .background(.black)
+                        .background(Color(uiColor: .systemBackground))
                         .opacity(0.3)
                     QuizAlertView(settings: settings, showAlert: $showAlert)
                 }

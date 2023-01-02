@@ -97,7 +97,7 @@ class CourseViewModel: ObservableObject {
         let lesson = self.lessons[lessonId - 1]
         var count = 0
         
-        if lesson.type == "quiz" || lesson.type == "finalQuiz"{
+        if lesson.type == "quiz" || lesson.type == "finalQuiz" {
             for question in lesson.quizData!.quizQuestions {
                 count += question.points
             }

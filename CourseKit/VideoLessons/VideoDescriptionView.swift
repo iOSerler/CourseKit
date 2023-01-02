@@ -29,7 +29,7 @@ struct VideoDescriptionView: View {
             
             Text(description)
                 .font(Font.custom(settings.descriptionFont, size: 14))
-                .foregroundColor(Color(settings.tertiaryTextColor))
+                .foregroundColor(Color(settings.secondaryTextColor))
         }
     }
 }

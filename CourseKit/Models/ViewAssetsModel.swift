@@ -14,7 +14,6 @@ struct ViewAssets {
     var descriptionFont: String
     var primaryTextColor: UIColor
     var secondaryTextColor: UIColor
-    var tertiaryTextColor: UIColor
     var primaryColor: UIColor
     var secondaryColor: UIColor
     var accentColor: UIColor
@@ -31,7 +30,6 @@ var viewAssets = ViewAssets(
     descriptionFont: "Rubik-Regular",
     primaryTextColor: .label,
     secondaryTextColor: .secondaryLabel,
-    tertiaryTextColor: .tertiaryLabel,
     primaryColor: .systemBlue,
     secondaryColor: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1),
     accentColor: #colorLiteral(red: 0.8784313725, green: 0.4470588235, blue: 0.6431372549, alpha: 1),

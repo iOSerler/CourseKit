@@ -17,6 +17,7 @@ struct CompleteCourseView: View {
         VStack(alignment: .center, spacing: 30) {
             
             Image(systemName:"trophy")
+                .resizable()
                 .padding(.top, 30)
                 .foregroundColor(Color(settings.primaryColor))
             
@@ -27,7 +28,7 @@ struct CompleteCourseView: View {
             Group {
                 Text("You have successfully complete ")
                     .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.tertiaryTextColor)) +
+                    .foregroundColor(Color(settings.secondaryTextColor)) +
                 
                 Text(String(courseTitle))
                     .font(.custom(settings.titleFont, size: 14))
@@ -35,7 +36,7 @@ struct CompleteCourseView: View {
                 
                 Text(". Complete more course like this to earn more points.")
                     .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.tertiaryTextColor))
+                    .foregroundColor(Color(settings.secondaryTextColor))
             }.multilineTextAlignment(.center)
              .fixedSize(horizontal: false, vertical: true)
              .padding(.horizontal, 20)

@@ -21,7 +21,8 @@ struct UrlImageView: View {
             if let image = urlImageModel.image {
                 Image(uiImage: image).resizable()
             }else {
-                Image(systemName: "photo").resizable()
+                Image(systemName: "photo.artframe")
+                    .fontWeight(.ultraLight)
             }
                 
         }

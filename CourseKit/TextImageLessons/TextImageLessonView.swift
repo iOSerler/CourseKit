@@ -18,34 +18,36 @@ struct TextImageLessonView: View {
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                Text(textLesson.description!)
-                    .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.tertiaryTextColor))
+            VStack(alignment: .leading, spacing: 16) {
+                
+                Text(textLesson.description ?? "")
+                    .font(.custom(settings.descriptionFont, size: 16))
+                    .foregroundColor(Color(settings.secondaryTextColor))
                     .multilineTextAlignment(.leading)
+                    .padding(.top, 10)
+                
                 HStack {
                     Image(systemName: "timer")
-                    
+                        .foregroundColor(Color(settings.secondaryTextColor))
                     Text(textLesson.duration!)
-                        .font(.custom(settings.descriptionFont, size: 14))
+                        .font(.custom(settings.descriptionFont, size: 16))
                         .foregroundColor(Color(settings.secondaryTextColor))
                         .padding(.leading, 10)
                     Spacer()
                 }
-                .padding(.leading, 20)
                 
                 VStack {
-                    ForEach(textLesson.sections!) { section in
+                    ForEach(textLesson.sections ?? []) { section in
                         TextImageLessonSectionView(settings: settings, section: section)
                     }
                     
-                    
                     LessonFooterView(settings: settings)
                         .padding(.leading, 8)
-                }.navigationTitle(textLesson.title)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .padding(.horizontal, 20)
+                }
             }
+            .navigationTitle(textLesson.title)
+            .navigationBarTitleDisplayMode(.inline)
+            .padding(.horizontal, 20)
             .background(
                 GeometryReader { geo in
                     let scrollLength = geo.size.height - scrollViewHeight

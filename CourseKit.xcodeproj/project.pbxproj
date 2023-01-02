@@ -33,7 +33,7 @@
 		5CA313FF2963136C0086169F /* AutoRotateVideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313F12963136C0086169F /* AutoRotateVideoPlayerView.swift */; };
 		5CA314002963136C0086169F /* VideoStampsIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313F22963136C0086169F /* VideoStampsIView.swift */; };
 		5CA314012963136C0086169F /* VideoDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313F32963136C0086169F /* VideoDescriptionView.swift */; };
-		5CA314022963136C0086169F /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313F42963136C0086169F /* CourseDetailView.swift */; };
+		5CA314022963136C0086169F /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313F42963136C0086169F /* CourseView.swift */; };
 		5CA31407296313940086169F /* UrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA31404296313940086169F /* UrlImageView.swift */; };
 		5CA31408296313940086169F /* ScrollViewProportion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA31405296313940086169F /* ScrollViewProportion.swift */; };
 		5CA31409296313940086169F /* UrlImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA31406296313940086169F /* UrlImageModel.swift */; };
@@ -86,7 +86,7 @@
 		5CA313F12963136C0086169F /* AutoRotateVideoPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoRotateVideoPlayerView.swift; sourceTree = "<group>"; };
 		5CA313F22963136C0086169F /* VideoStampsIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoStampsIView.swift; sourceTree = "<group>"; };
 		5CA313F32963136C0086169F /* VideoDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDescriptionView.swift; sourceTree = "<group>"; };
-		5CA313F42963136C0086169F /* CourseDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
+		5CA313F42963136C0086169F /* CourseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		5CA31404296313940086169F /* UrlImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlImageView.swift; sourceTree = "<group>"; };
 		5CA31405296313940086169F /* ScrollViewProportion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewProportion.swift; sourceTree = "<group>"; };
 		5CA31406296313940086169F /* UrlImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlImageModel.swift; sourceTree = "<group>"; };
@@ -183,6 +183,7 @@
 			children = (
 				5CA313D4296313350086169F /* ViewAssetsModel.swift */,
 				5CA313D9296313350086169F /* CoursesModel.swift */,
+				5CA313CE2963131C0086169F /* CourseViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,8 +191,7 @@
 		5CA313E32963136C0086169F /* CourseDetail */ = {
 			isa = PBXGroup;
 			children = (
-				5CA313CE2963131C0086169F /* CourseViewModel.swift */,
-				5CA313F42963136C0086169F /* CourseDetailView.swift */,
+				5CA313F42963136C0086169F /* CourseView.swift */,
 				5CA313E82963136C0086169F /* CourseDetailTopicCellView.swift */,
 				5CA313E92963136C0086169F /* CourseDetailSectionCellView.swift */,
 				5CA313EE2963136C0086169F /* CompleteCourseView.swift */,
@@ -361,7 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CA314022963136C0086169F /* CourseDetailView.swift in Sources */,
+				5CA314022963136C0086169F /* CourseView.swift in Sources */,
 				5CA31409296313940086169F /* UrlImageModel.swift in Sources */,
 				5CA313A9296312610086169F /* HomeView.swift in Sources */,
 				5CA313FA2963136C0086169F /* QuizQuestionView.swift in Sources */,

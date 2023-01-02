@@ -14,7 +14,7 @@ struct TextImageLessonSectionView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(section.title)
-                .font(.custom(settings.titleFont, size: 16))
+                .font(.custom(settings.titleFont, size: 19))
                 .padding(.bottom, 1)
             
             ForEach(section.data) { data in

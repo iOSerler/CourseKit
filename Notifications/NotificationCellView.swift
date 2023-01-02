@@ -33,7 +33,7 @@ struct NotificationCellView: View {
             
                     Text(item.description)
                         .font(.custom(settings.descriptionFont, size: 12))
-                        .foregroundColor(Color(settings.tertiaryTextColor))
+                        .foregroundColor(Color(settings.secondaryTextColor))
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
                     

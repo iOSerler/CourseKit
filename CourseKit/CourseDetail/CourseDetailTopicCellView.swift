@@ -36,7 +36,7 @@ struct CourseDetailTopicCellView: View {
                     .foregroundColor(Color(settings.primaryTextColor))
                 Text(lesson.description!)
                     .font(.custom(settings.descriptionFont, size: 12))
-                    .foregroundColor(Color(settings.tertiaryTextColor))
+                    .foregroundColor(Color(settings.secondaryTextColor))
                     .multilineTextAlignment(.leading)
                 HStack(alignment: .center) {
                     

@@ -64,7 +64,7 @@ struct QuizView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("DESCRIPTION")
                         .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.tertiaryTextColor))
+                        .foregroundColor(Color(settings.secondaryTextColor))
                     
                     Text(lesson.quizData!.description)
                         .font(.custom(settings.descriptionFont, size: 14))
@@ -72,7 +72,7 @@ struct QuizView: View {
                     
                     Text("QUESTIONS & TOPICS")
                         .font(.custom(settings.descriptionFont, size: 14))
-                        .foregroundColor(Color(settings.tertiaryTextColor))
+                        .foregroundColor(Color(settings.secondaryTextColor))
                     
                     
                     VStack(alignment: .leading, spacing: 15) {

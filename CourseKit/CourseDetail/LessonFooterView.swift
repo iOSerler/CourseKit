@@ -14,7 +14,7 @@ struct LessonFooterView: View {
         VStack(alignment: .center) {
             Text(footer.copyrightText)
                 .font(Font.custom(settings.descriptionFont, size: 12))
-                .foregroundColor(Color(settings.tertiaryTextColor))
+                .foregroundColor(Color(settings.secondaryTextColor))
                 .multilineTextAlignment(.center)
                 .frame(width: UIScreen.main.bounds.width/2,
                        alignment: .center)
