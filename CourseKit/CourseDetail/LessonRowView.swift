@@ -9,13 +9,12 @@ import SwiftUI
 
 struct LessonRowView: View {
     
-    @ObservedObject var courseViewModel: CourseViewModel
-    @State var lesson: Lesson
+    @ObservedObject var lessonViewModel: LessonViewModel
     @State var progress: Double = 0.0
     var settings: ViewAssets
     
     var icon: String {
-        switch lesson.type {
+        switch lessonViewModel.lesson.type {
         case "text":
             return "doc.text"
         case "video":
@@ -35,13 +34,16 @@ struct LessonRowView: View {
             .padding(.trailing, 8)
             
             VStack(alignment: .leading) {
-                Text(lesson.title)
+                Text(lessonViewModel.lesson.title)
                     .font(.custom(settings.titleFont, size: 14))
                     .foregroundColor(Color(settings.primaryTextColor))
-                Text(lesson.description!)
-                    .font(.custom(settings.descriptionFont, size: 12))
-                    .foregroundColor(Color(settings.secondaryTextColor))
-                    .multilineTextAlignment(.leading)
+                if let description = lessonViewModel.lesson.description {
+                    Text(description)
+                        .font(.custom(settings.descriptionFont, size: 12))
+                        .foregroundColor(Color(settings.secondaryTextColor))
+                        .multilineTextAlignment(.leading)
+                }
+                
                 HStack(alignment: .center) {
                     
                     ProgressView(value: self.progress * 100, total: 100)
@@ -61,7 +63,7 @@ struct LessonRowView: View {
         
         .onDidAppear {
             
-                self.progress = courseViewModel.getLessonProgress(userId: 1, lessonId: self.lesson.id)
+                self.progress = lessonViewModel.getLessonProgress(userId: 1)
             
         }
     }

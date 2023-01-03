@@ -9,9 +9,8 @@ import SwiftUI
 
 struct TextImageLessonView: View {
     
-    @ObservedObject var courseViewModel: CourseViewModel
+    @ObservedObject var lessonViewModel: LessonViewModel
     var settings: ViewAssets
-    var textLesson: Lesson
     
     @State private var scrollViewHeight: CGFloat = 0
     @State private var proportion: CGFloat = 0
@@ -20,7 +19,7 @@ struct TextImageLessonView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 16) {
                 
-                Text(textLesson.description ?? "")
+                Text(lessonViewModel.lesson.description ?? "")
                     .font(.custom(settings.descriptionFont, size: 16))
                     .foregroundColor(Color(settings.secondaryTextColor))
                     .multilineTextAlignment(.leading)
@@ -29,7 +28,7 @@ struct TextImageLessonView: View {
                 HStack {
                     Image(systemName: "timer")
                         .foregroundColor(Color(settings.secondaryTextColor))
-                    Text(textLesson.duration!)
+                    Text(lessonViewModel.lesson.duration ?? "")
                         .font(.custom(settings.descriptionFont, size: 16))
                         .foregroundColor(Color(settings.secondaryTextColor))
                         .padding(.leading, 10)
@@ -37,7 +36,7 @@ struct TextImageLessonView: View {
                 }
                 
                 VStack {
-                    ForEach(textLesson.sections ?? []) { section in
+                    ForEach(lessonViewModel.textLesson.sections ?? []) { section in
                         TextImageLessonSectionView(settings: settings, section: section)
                     }
                     
@@ -45,7 +44,7 @@ struct TextImageLessonView: View {
                         .padding(.leading, 8)
                 }
             }
-            .navigationTitle(textLesson.title)
+            .navigationTitle(lessonViewModel.lesson.title)
             .navigationBarTitleDisplayMode(.inline)
             .padding(.horizontal, 20)
             .background(
@@ -68,7 +67,7 @@ struct TextImageLessonView: View {
             
         }
         .onWillDisappear {
-            courseViewModel.saveLessonProgress(userId: 1, lessonId: self.textLesson.id, progress: self.proportion)
+            lessonViewModel.saveLessonProgress(userId: 1, progress: self.proportion)
         }
         .background(
             GeometryReader { geo in

@@ -1,0 +1,40 @@
+[
+    {
+        "id": "loops-video",
+        "title": "Loops",
+        "description": "Python programming language provides the following types of loops to handle looping requirements. Python provides three ways for executing the loops. While all the ways provide similar basic functionality, they differ in their syntax and condition checking time.",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+        "stamps": [
+            {
+                "seconds": 0,
+                "textTime": "0:00",
+                "textDescription": "Introduction to Loops"
+            },
+            {
+                "seconds": 120,
+                "textTime": "2:00",
+                "textDescription": "Loops in general"
+            },
+            {
+                "seconds": 180,
+                "textTime": "3:00",
+                "textDescription": "For loops"
+            },
+            {
+                "seconds": 300,
+                "textTime": "5:00",
+                "textDescription": "While loops"
+            },
+            {
+                "seconds": 420,
+                "textTime": "7:00",
+                "textDescription": "Some other points of loops"
+            },
+            {
+                "seconds": 600,
+                "textTime": "10:00",
+                "textDescription": "Conclusion and Recap"
+            }
+        ]
+    }
+]

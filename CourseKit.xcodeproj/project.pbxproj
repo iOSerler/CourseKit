@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C51D1D12964B20300B2C631 /* quizzes.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C51D1D02964B20300B2C631 /* quizzes.json */; };
+		5C51D1D32964B23600B2C631 /* videos.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C51D1D22964B23600B2C631 /* videos.json */; };
+		5C51D1D52964B80E00B2C631 /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C51D1D42964B80E00B2C631 /* LessonViewModel.swift */; };
 		5CA313A7296312610086169F /* CourseKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313A6296312610086169F /* CourseKitApp.swift */; };
 		5CA313A9296312610086169F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313A8296312610086169F /* HomeView.swift */; };
 		5CA313AE296312630086169F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA313AD296312630086169F /* Preview Assets.xcassets */; };
@@ -16,10 +19,10 @@
 		5CA313CC296312F30086169F /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313C0296312F30086169F /* NotificationsView.swift */; };
 		5CA313CF2963131C0086169F /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313CE2963131C0086169F /* CourseViewModel.swift */; };
 		5CA313D1296313260086169F /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D0296313260086169F /* NotificationViewModel.swift */; };
-		5CA313DC296313350086169F /* ViewAssetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D4296313350086169F /* ViewAssetsModel.swift */; };
+		5CA313DC296313350086169F /* ViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D4296313350086169F /* ViewAssets.swift */; };
 		5CA313DE296313350086169F /* NotificationsPermissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D6296313350086169F /* NotificationsPermissionModel.swift */; };
 		5CA313E0296313350086169F /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D8296313350086169F /* NotificationModel.swift */; };
-		5CA313E1296313350086169F /* CoursesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D9296313350086169F /* CoursesModel.swift */; };
+		5CA313E1296313350086169F /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D9296313350086169F /* Course.swift */; };
 		5CA313F52963136C0086169F /* TextImageLessonSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E52963136C0086169F /* TextImageLessonSectionView.swift */; };
 		5CA313F62963136C0086169F /* TextImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E62963136C0086169F /* TextImageView.swift */; };
 		5CA313F72963136C0086169F /* TextImageLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313E72963136C0086169F /* TextImageLessonView.swift */; };
@@ -38,7 +41,7 @@
 		5CA31408296313940086169F /* ScrollViewProportion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA31405296313940086169F /* ScrollViewProportion.swift */; };
 		5CA31409296313940086169F /* UrlImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA31406296313940086169F /* UrlImageModel.swift */; };
 		5CA31412296319E70086169F /* LessonFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA3140D296319E70086169F /* LessonFooterView.swift */; };
-		5CA3142D29631BAA0086169F /* lessons.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3141929631BAA0086169F /* lessons.json */; };
+		5CA3142D29631BAA0086169F /* texts.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3141929631BAA0086169F /* texts.json */; };
 		5CA3143029631BAA0086169F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3141C29631BAA0086169F /* Assets.xcassets */; };
 		5CA3143129631BAA0086169F /* course.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3141D29631BAA0086169F /* course.json */; };
 		5CA3143229631BAA0086169F /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3141F29631BAA0086169F /* Rubik-MediumItalic.ttf */; };
@@ -56,9 +59,13 @@
 		5CA3143E29631BAA0086169F /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3142B29631BAA0086169F /* Rubik-Regular.ttf */; };
 		5CA3143F29631BAA0086169F /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3142C29631BAA0086169F /* Rubik-BoldItalic.ttf */; };
 		5CA3144129635B950086169F /* Learn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CA3144029635B950086169F /* Learn.json */; };
+		5CA314432963F0280086169F /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA314422963F0280086169F /* Lesson.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C51D1D02964B20300B2C631 /* quizzes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quizzes.json; sourceTree = "<group>"; };
+		5C51D1D22964B23600B2C631 /* videos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = videos.json; sourceTree = "<group>"; };
+		5C51D1D42964B80E00B2C631 /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
 		5CA313A3296312610086169F /* CourseKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CA313A6296312610086169F /* CourseKitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseKitApp.swift; sourceTree = "<group>"; };
 		5CA313A8296312610086169F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -69,10 +76,10 @@
 		5CA313C0296312F30086169F /* NotificationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		5CA313CE2963131C0086169F /* CourseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		5CA313D0296313260086169F /* NotificationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
-		5CA313D4296313350086169F /* ViewAssetsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAssetsModel.swift; sourceTree = "<group>"; };
+		5CA313D4296313350086169F /* ViewAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAssets.swift; sourceTree = "<group>"; };
 		5CA313D6296313350086169F /* NotificationsPermissionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionModel.swift; sourceTree = "<group>"; };
 		5CA313D8296313350086169F /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
-		5CA313D9296313350086169F /* CoursesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesModel.swift; sourceTree = "<group>"; };
+		5CA313D9296313350086169F /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5CA313E52963136C0086169F /* TextImageLessonSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageLessonSectionView.swift; sourceTree = "<group>"; };
 		5CA313E62963136C0086169F /* TextImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageView.swift; sourceTree = "<group>"; };
 		5CA313E72963136C0086169F /* TextImageLessonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextImageLessonView.swift; sourceTree = "<group>"; };
@@ -91,7 +98,7 @@
 		5CA31405296313940086169F /* ScrollViewProportion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewProportion.swift; sourceTree = "<group>"; };
 		5CA31406296313940086169F /* UrlImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlImageModel.swift; sourceTree = "<group>"; };
 		5CA3140D296319E70086169F /* LessonFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessonFooterView.swift; sourceTree = "<group>"; };
-		5CA3141929631BAA0086169F /* lessons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lessons.json; sourceTree = "<group>"; };
+		5CA3141929631BAA0086169F /* texts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = texts.json; sourceTree = "<group>"; };
 		5CA3141C29631BAA0086169F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CA3141D29631BAA0086169F /* course.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = course.json; sourceTree = "<group>"; };
 		5CA3141F29631BAA0086169F /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -109,6 +116,7 @@
 		5CA3142B29631BAA0086169F /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		5CA3142C29631BAA0086169F /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
 		5CA3144029635B950086169F /* Learn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Learn.json; sourceTree = "<group>"; };
+		5CA314422963F0280086169F /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,9 +189,11 @@
 		5CA313D2296313350086169F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5CA313D4296313350086169F /* ViewAssetsModel.swift */,
-				5CA313D9296313350086169F /* CoursesModel.swift */,
+				5CA313D4296313350086169F /* ViewAssets.swift */,
+				5CA313D9296313350086169F /* Course.swift */,
+				5CA314422963F0280086169F /* Lesson.swift */,
 				5CA313CE2963131C0086169F /* CourseViewModel.swift */,
+				5C51D1D42964B80E00B2C631 /* LessonViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,7 +254,9 @@
 		5CA3141829631BAA0086169F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5CA3141929631BAA0086169F /* lessons.json */,
+				5CA3141929631BAA0086169F /* texts.json */,
+				5C51D1D02964B20300B2C631 /* quizzes.json */,
+				5C51D1D22964B23600B2C631 /* videos.json */,
 				5CA3141C29631BAA0086169F /* Assets.xcassets */,
 				5CA3141D29631BAA0086169F /* course.json */,
 				5CA3144029635B950086169F /* Learn.json */,
@@ -335,12 +347,13 @@
 				5CA313AE296312630086169F /* Preview Assets.xcassets in Resources */,
 				5CA3143329631BAA0086169F /* Rubik-Bold.ttf in Resources */,
 				5CA3143C29631BAA0086169F /* Rubik-BlackItalic.ttf in Resources */,
+				5C51D1D12964B20300B2C631 /* quizzes.json in Resources */,
 				5CA3143629631BAA0086169F /* Rubik-Medium.ttf in Resources */,
 				5CA3143729631BAA0086169F /* Rubik-ExtraBoldItalic.ttf in Resources */,
 				5CA3143D29631BAA0086169F /* Rubik-ExtraBold.ttf in Resources */,
 				5CA3143B29631BAA0086169F /* Rubik-SemiBold.ttf in Resources */,
 				5CA3143229631BAA0086169F /* Rubik-MediumItalic.ttf in Resources */,
-				5CA3142D29631BAA0086169F /* lessons.json in Resources */,
+				5CA3142D29631BAA0086169F /* texts.json in Resources */,
 				5CA3143129631BAA0086169F /* course.json in Resources */,
 				5CA3143A29631BAA0086169F /* Rubik-LightItalic.ttf in Resources */,
 				5CA3143E29631BAA0086169F /* Rubik-Regular.ttf in Resources */,
@@ -348,6 +361,7 @@
 				5CA3144129635B950086169F /* Learn.json in Resources */,
 				5CA3143829631BAA0086169F /* Rubik-Black.ttf in Resources */,
 				5CA3143929631BAA0086169F /* Rubik-Italic.ttf in Resources */,
+				5C51D1D32964B23600B2C631 /* videos.json in Resources */,
 				5CA3143029631BAA0086169F /* Assets.xcassets in Resources */,
 				5CA3143F29631BAA0086169F /* Rubik-BoldItalic.ttf in Resources */,
 				5CA3143529631BAA0086169F /* Rubik-Light.ttf in Resources */,
@@ -364,6 +378,7 @@
 				5CA314022963136C0086169F /* CourseView.swift in Sources */,
 				5CA31409296313940086169F /* UrlImageModel.swift in Sources */,
 				5CA313A9296312610086169F /* HomeView.swift in Sources */,
+				5CA314432963F0280086169F /* Lesson.swift in Sources */,
 				5CA313FA2963136C0086169F /* QuizQuestionView.swift in Sources */,
 				5CA314012963136C0086169F /* VideoDescriptionView.swift in Sources */,
 				5CA313FE2963136C0086169F /* VideoLessonView.swift in Sources */,
@@ -375,7 +390,8 @@
 				5CA31408296313940086169F /* ScrollViewProportion.swift in Sources */,
 				5CA313DE296313350086169F /* NotificationsPermissionModel.swift in Sources */,
 				5CA313C9296312F30086169F /* NotificationDetailView.swift in Sources */,
-				5CA313DC296313350086169F /* ViewAssetsModel.swift in Sources */,
+				5CA313DC296313350086169F /* ViewAssets.swift in Sources */,
+				5C51D1D52964B80E00B2C631 /* LessonViewModel.swift in Sources */,
 				5CA313FF2963136C0086169F /* AutoRotateVideoPlayerView.swift in Sources */,
 				5CA31412296319E70086169F /* LessonFooterView.swift in Sources */,
 				5CA313F92963136C0086169F /* SectionView.swift in Sources */,
@@ -387,7 +403,7 @@
 				5CA313F52963136C0086169F /* TextImageLessonSectionView.swift in Sources */,
 				5CA313F62963136C0086169F /* TextImageView.swift in Sources */,
 				5CA313CC296312F30086169F /* NotificationsView.swift in Sources */,
-				5CA313E1296313350086169F /* CoursesModel.swift in Sources */,
+				5CA313E1296313350086169F /* Course.swift in Sources */,
 				5CA314002963136C0086169F /* VideoStampsIView.swift in Sources */,
 				5CA313E0296313350086169F /* NotificationModel.swift in Sources */,
 				5CA313CB296312F30086169F /* NotificationCellView.swift in Sources */,

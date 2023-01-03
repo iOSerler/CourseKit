@@ -10,17 +10,15 @@ import AVKit
 
 struct VideoLessonView: View {
     
-    @ObservedObject var courseViewModel: CourseViewModel
+    @ObservedObject var lessonViewModel: LessonViewModel
     var settings: ViewAssets
-    var videoLesson: Lesson
     
-    @State var player: AVPlayer
+    @State var player = AVPlayer()
     
-    init(courseViewModel: CourseViewModel, settings: ViewAssets, videoLesson: Lesson) {
-        self.courseViewModel = courseViewModel
+    init(lessonViewModel: LessonViewModel, settings: ViewAssets) {
+        self.lessonViewModel = lessonViewModel
         self.settings = settings
-        self.videoLesson = videoLesson
-        self.player = AVPlayer(url: URL(string: videoLesson.url!)!)
+        self.player = AVPlayer(url: URL(string: lessonViewModel.lesson.url!)!)
     }
     
     var body: some View {
@@ -30,7 +28,7 @@ struct VideoLessonView: View {
                 .onAppear {
                     DispatchQueue.main.async {
                         
-                        let progress = courseViewModel.getLessonProgress(userId: 1, lessonId: self.videoLesson.id)
+                        let progress = lessonViewModel.getLessonProgress(userId: 1)
                         
                         player.seek(to: CMTime(seconds: progress * CMTimeGetSeconds(player.currentItem!.asset.duration), preferredTimescale: player.currentTime().timescale))
                     }
@@ -46,7 +44,7 @@ struct VideoLessonView: View {
                                 return
                             }
                             
-                            courseViewModel.saveLessonProgress(userId: 1, lessonId: self.videoLesson.id, progress: progress)
+                            lessonViewModel.saveLessonProgress(userId: 1, progress: progress)
                         }
                         
                         
@@ -58,12 +56,12 @@ struct VideoLessonView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     
                     VideoDescriptionView(settings: settings,
-                                         title: videoLesson.title,
-                                         duration: videoLesson.duration ?? "",
-                                         description: videoLesson.description!)
+                                         title: lessonViewModel.videoLesson.title,
+                                         duration: lessonViewModel.lesson.duration ?? "",
+                                         description: lessonViewModel.videoLesson.description)
                     
                     VideoStampsIView(settings: settings,
-                                     stamps: videoLesson.stamps!,
+                                     stamps: lessonViewModel.videoLesson.stamps!,
                                      player: $player)
                     
                     LessonFooterView(settings: settings)

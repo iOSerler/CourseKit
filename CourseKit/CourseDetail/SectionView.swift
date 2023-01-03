@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SectionView: View {
     
-    @ObservedObject var courseViewModel: CourseViewModel
     var settings: ViewAssets
     @State var section: CourseSection
     @Binding var showAlert: Bool
@@ -32,27 +31,28 @@ struct SectionView: View {
                     .padding(.bottom, 8)
 
                 
-                ForEach(
-                    courseViewModel.getLessonsBySection(
-                        sectionId: section.id
-                    )
-                ) { lesson in
+                ForEach(section.lessons) { lesson in
+                    
+                    let lessonVM = LessonViewModel(lesson: lesson)
+
                     if lesson.type == "text" {
-                        NavigationLink(destination: TextImageLessonView(courseViewModel: courseViewModel, settings: settings, textLesson: lesson)) {
-                            LessonRowView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
+
+                        NavigationLink(destination: TextImageLessonView(lessonViewModel: lessonVM, settings: settings)) {
+                            LessonRowView(lessonViewModel: lessonVM, settings: settings)
                                 .padding(.vertical, 10)
                         }
-                    }
-                    else if lesson.type == "video"{
-                        NavigationLink(destination: VideoLessonView(courseViewModel: courseViewModel, settings: settings, videoLesson: lesson)) {
-                            LessonRowView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
+                    } else if lesson.type == "video" {
+
+                        NavigationLink(destination: VideoLessonView(lessonViewModel: lessonVM, settings: settings)) {
+                            LessonRowView(lessonViewModel: lessonVM, settings: settings)
                                 .padding(.vertical, 10)
 
                         }
-                    }
-                    else if lesson.type == "finalQuiz" {
-                        NavigationLink(destination: QuizView(courseViewModel: courseViewModel, settings: settings, lesson: lesson)) {
-                            LessonRowView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
+                    } else if lesson.type == "quiz" {
+                            let lessonVM = LessonViewModel(lesson: lesson)
+
+                        NavigationLink(destination: QuizView(lessonViewModel: lessonVM, settings: settings)) {
+                            LessonRowView(lessonViewModel: lessonVM, settings: settings)
                                 .padding(.vertical, 10)
 
                         }.disabled(progress >= 0.8 ? false: true)
@@ -61,13 +61,8 @@ struct SectionView: View {
                                     showAlert.toggle()
                                 }
                             }
-                    }
-                    else {
-                        NavigationLink(destination: QuizView(courseViewModel: courseViewModel, settings: settings, lesson: lesson)) {
-                            LessonRowView(courseViewModel: courseViewModel, lesson: lesson, settings: settings)
-                                .padding(.vertical, 10)
-
-                        }
+                    } else {
+                        //FIXME: article and page
                     }
                     Divider()
                 }

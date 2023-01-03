@@ -9,15 +9,14 @@ import SwiftUI
 
 struct QuizView: View {
     
-    @ObservedObject var courseViewModel: CourseViewModel
+    @ObservedObject var lessonViewModel: LessonViewModel
     var settings: ViewAssets
-    var lesson: Lesson
     var courseProgress: Double = 0.0
     var body: some View {
         
         VStack(spacing: 30) {
             
-            Text(lesson.quizData!.title)
+            Text(lessonViewModel.quiz.title)
                 .multilineTextAlignment(.leading)
                 .font(.custom(settings.titleFont, size: 20))
                 .foregroundColor(Color(settings.primaryColor))
@@ -32,7 +31,7 @@ struct QuizView: View {
                         
                         Image(systemName: "questionmark.circle.fill")
                             .foregroundColor(Color(settings.primaryColor))
-                        Text(String(lesson.quizData!.quizQuestions.count)+" Questions")
+                        Text(String(lessonViewModel.quiz.quizQuestions.count)+" Questions")
                             .font(.custom(settings.descriptionFont, size: 14))
                         .foregroundColor(Color(settings.primaryTextColor))
                         
@@ -47,7 +46,7 @@ struct QuizView: View {
                         
                         Image(systemName: "asterisk.circle.fill")
                             .foregroundColor(Color(uiColor:settings.accentColor))
-                        Text(String(courseViewModel.getQuizPoints(lessonId: lesson.id))+" Points")
+                        Text(String(lessonViewModel.getQuizPoints())+" Points")
                             .font(.custom(settings.descriptionFont, size: 14))
                         .foregroundColor(Color(settings.primaryTextColor))
                         
@@ -61,7 +60,7 @@ struct QuizView: View {
                         .font(.custom(settings.descriptionFont, size: 14))
                         .foregroundColor(Color(settings.secondaryTextColor))
                     
-                    Text(lesson.quizData!.description)
+                    Text(lessonViewModel.quiz.description)
                         .font(.custom(settings.descriptionFont, size: 14))
                         .foregroundColor(Color(settings.primaryTextColor))
                     
@@ -71,7 +70,7 @@ struct QuizView: View {
                     
                     
                     VStack(alignment: .leading, spacing: 15) {
-                        ForEach(lesson.quizData!.quizQuestions) { question in
+                        ForEach(lessonViewModel.quiz.quizQuestions) { question in
                             HStack {
                                 Text("\u{2022}")
                                     .foregroundColor(Color(settings.primaryTextColor))
@@ -91,11 +90,8 @@ struct QuizView: View {
             }
             
             NavigationLink(destination: QuizQuestionView(
-                courseViewModel: courseViewModel,
-                settings: settings,
-                quizQuestions: lesson.quizData!.quizQuestions,
-                currentQuestion: lesson.quizData!.quizQuestions[0],
-                lessonId: lesson.id
+                lessonViewModel: lessonViewModel,
+                settings: settings
             ), label: {
                 Text("Start Attempt")
                     .font(Font.custom(settings.titleFont, size: 16))
@@ -107,6 +103,6 @@ struct QuizView: View {
             })
             
            
-        }.navigationTitle(lesson.title)
+        }.navigationTitle(lessonViewModel.lesson.title)
     }
 }

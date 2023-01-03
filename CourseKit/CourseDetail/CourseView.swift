@@ -59,7 +59,7 @@ struct CourseView: View {
                         
                         
                         ForEach(detail.sections) { section in
-                            SectionView(courseViewModel: courseViewModel, settings: settings, section: section, showAlert: $showAlert, progress: $progress)
+                            SectionView(settings: settings, section: section, showAlert: $showAlert, progress: $progress)
                         }
                     }
                     Spacer()
@@ -84,19 +84,21 @@ struct CourseView: View {
                     })
                 } else {
                     
-                    switch courseViewModel.getFirstUnfinishedLesson(for: 1).type {
+                    let lessonVM = courseViewModel.getFirstUnfinishedLesson(for: 1)
+                    
+                    switch lessonVM.lesson.type {
                     case "text":
-                        NavigationLink(destination:  TextImageLessonView(courseViewModel: courseViewModel, settings: settings, textLesson: courseViewModel.getFirstUnfinishedLesson(for: 1)), label: {
+                        NavigationLink(destination:  TextImageLessonView(lessonViewModel: lessonVM, settings: settings), label: {
                             ContinueButton(settings: settings)
                        })
                         
                     case "video":
-                        NavigationLink(destination:  VideoLessonView(courseViewModel: courseViewModel, settings: settings, videoLesson: courseViewModel.getFirstUnfinishedLesson(for: 1)), label: {
+                        NavigationLink(destination:  VideoLessonView(lessonViewModel: lessonVM, settings: settings), label: {
                             ContinueButton(settings: settings)
                        })
                         
-                    case "finalQuiz", "quiz":
-                        NavigationLink(destination:  QuizView(courseViewModel: courseViewModel, settings: settings, lesson: courseViewModel.getFirstUnfinishedLesson(for: 1)), label: {
+                    case "quiz":
+                        NavigationLink(destination:  QuizView(lessonViewModel: lessonVM, settings: settings), label: {
                             ContinueButton(settings: settings)
                         })
                     default:

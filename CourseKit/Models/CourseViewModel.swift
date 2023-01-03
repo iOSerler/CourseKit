@@ -9,12 +9,9 @@ import Foundation
 
 class CourseViewModel: ObservableObject {
     @Published var course: Course!
-    @Published var lessons = [Lesson]()
-    
-    
+        
     init() {
         loadCourse()
-        loadLessons()
     }
     
     func loadCourse() {
@@ -28,41 +25,17 @@ class CourseViewModel: ObservableObject {
             let course = try JSONDecoder().decode(Course.self, from: data)
             self.course = course
         } catch {
-            print(error.localizedDescription)
+            print(#file, #function, error.localizedDescription)
         }
         
-        
-        
-    }
-    
-    func loadLessons() {
-        guard let url = Bundle.main.url(forResource: "lessons", withExtension: "json")
-        else {
-            print("lessons json file not found")
-            return
-        }
-        
-        let data = try? Data(contentsOf: url)
-        let lessons = try? JSONDecoder().decode([Lesson].self, from: data!)
-        self.lessons = lessons!
-        
-    }
-    
-    func getLessonsBySection(sectionId: Int) -> [Lesson] {
-        var lessonsArr = [Lesson]()
-        let lessonsIds = course.sections[sectionId - 1].lessons
-        for ind in lessonsIds {
-            lessonsArr.append(self.lessons[ind - 1])
-        }
-        return lessonsArr
     }
     
     func saveCourseProgress(userId: Int) -> Double {
         var sum = 0.0
         var counter = 0
         for section in course.sections {
-            for lessonId in section.lessons {
-                let progress = getLessonProgress(userId: userId, lessonId: lessonId)
+            for lesson in section.lessons {
+                let progress = LessonViewModel(lesson: lesson).getLessonProgress(userId: userId)
                 sum += progress
                 counter += 1
             }
@@ -82,42 +55,19 @@ class CourseViewModel: ObservableObject {
         return 0.0
     }
     
-    func saveLessonProgress(userId: Int, lessonId: Int, progress: Double) {
-        let key = "lesson_\(userId)_\(lessonId)"
-        UserDefaults.standard.set(progress, forKey: key)
-    }
     
-    func getLessonProgress(userId: Int, lessonId: Int) -> Double {
-        let key = "lesson_\(userId)_\(lessonId)"
-        let progress = UserDefaults.standard.value(forKey: key) as? Double ?? 0.0
-        return progress
-    }
-    
-    func getQuizPoints(lessonId: Int) -> Int {
-        let lesson = self.lessons[lessonId - 1]
-        var count = 0
-        
-        if lesson.type == "quiz" || lesson.type == "finalQuiz" {
-            for question in lesson.quizData!.quizQuestions {
-                count += question.points
+    func getFirstUnfinishedLesson(for userId: Int) -> LessonViewModel {
+        for section in self.course.sections {
+            for lesson in section.lessons {
+                let lessonVM = LessonViewModel(lesson: lesson)
+                if lessonVM.getLessonProgress(userId: userId) < 1.0 {
+                    return lessonVM
+                }
             }
-            return count
-        } else {
-            return 0
-        }
-    }
-    
-    func getFirstUnfinishedLesson(for userId: Int) -> Lesson {
-        for lesson in self.lessons {
-            
-            if getLessonProgress(userId: userId, lessonId: lesson.id) < 1.0 {
-                return lesson
-            }
-            
-            
         }
         
-        return lessons.first!
+        //FIXME: force unwrap
+        return LessonViewModel(lesson: course.sections.first!.lessons.first!)
     }
 
 }

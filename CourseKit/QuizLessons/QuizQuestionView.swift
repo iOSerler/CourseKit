@@ -9,9 +9,8 @@ import SwiftUI
 
 struct QuizQuestionView: View {
     
-    @ObservedObject var courseViewModel: CourseViewModel
+    @ObservedObject var lessonViewModel: LessonViewModel
     var settings: ViewAssets
-    var quizQuestions: [QuizQuestion]
     @State var currentQuestion: QuizQuestion
     @State var questionCounter: Int = 0
     @State var showResult: Bool = false
@@ -19,24 +18,32 @@ struct QuizQuestionView: View {
     @State var hasSelectedAnswer: Bool = false
     @State var chosenAnswer: String = ""
     @State var score: Int = 0
-    var lessonId: Int
+
     @Environment(\.presentationMode) var presentationMode
+    
+    init(lessonViewModel: LessonViewModel, settings: ViewAssets) {
+        self.lessonViewModel = lessonViewModel
+        self.settings = settings
+        //FIXME: force unwrap
+        self._currentQuestion = State(wrappedValue: lessonViewModel.quiz.quizQuestions.first!)
+    }
+    
     var body: some View {
         
         VStack(alignment: .center) {
             HStack {
                 Button {
                     // save progress
-                    print("ON X \(Double(questionCounter) / Double(quizQuestions.count))")
+                    print("ON X \(Double(questionCounter) / Double(lessonViewModel.quiz.quizQuestions.count))")
                     
-                    courseViewModel.saveLessonProgress(userId: 1, lessonId: lessonId, progress: (Double(questionCounter) / Double(quizQuestions.count)))
+                    lessonViewModel.saveLessonProgress(userId: 1, progress: (Double(questionCounter) / Double(lessonViewModel.quiz.quizQuestions.count)))
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(Color(uiColor: settings.primaryColor))
                 }
 
-                ProgressView(value: Double(self.questionCounter + 1), total: Double(quizQuestions.count))
+                ProgressView(value: Double(self.questionCounter + 1), total: Double(lessonViewModel.quiz.quizQuestions.count))
                     .accentColor( Color(settings.primaryColor))
                     .padding(.horizontal, 20)
                 HStack {
@@ -53,7 +60,7 @@ struct QuizQuestionView: View {
             }
             
             HStack {
-                Text("Question \(currentQuestion.id + 1) of \(quizQuestions.count)")
+                Text("Question \(currentQuestion.id + 1) of \(lessonViewModel.quiz.quizQuestions.count)")
                     .font(.custom(settings.descriptionFont, size: 14))
                     .foregroundColor(Color(settings.secondaryTextColor))
                     .padding(.top, 10)
@@ -78,52 +85,39 @@ struct QuizQuestionView: View {
             .disabled(showResult ? true : false)
             
             Spacer()
-            NavigationLink(
-                isActive: $isFinished,
-                destination: {
-                    CompleteCourseView(
-                        settings: settings,
-                        courseTitle: courseViewModel.course.title,
-                        completionRate: ((courseViewModel.saveCourseProgress(userId: 1) * 100).rounded() * 5) / 100,
-                        numPoints: score
-                    )
-                },
-                label: {
-                    Button(
-                        action: {
-                            if hasSelectedAnswer {
-                                if showResult {
-                                    if self.questionCounter == quizQuestions.count - 1 {
-                                        self.isFinished = true
-                                        courseViewModel.saveLessonProgress(userId: 1, lessonId: lessonId, progress: 1.0)
-                                        // save progress
-                                    } else {
-                                        self.questionCounter += 1
-                                        self.currentQuestion = quizQuestions[questionCounter]
-                                        self.showResult = false
-                                        self.hasSelectedAnswer = false
-                                    }
-                                } else {
-                                    updateScore()
-                                    self.showResult = true
-                                }
+            Button(
+                action: {
+                    if hasSelectedAnswer {
+                        if showResult {
+                            if self.questionCounter == lessonViewModel.quiz.quizQuestions.count - 1 {
+                                self.isFinished = true
+                                lessonViewModel.saveLessonProgress(userId: 1, progress: 1.0)
+                                // save progress
+                            } else {
+                                self.questionCounter += 1
+                                self.currentQuestion = lessonViewModel.quiz.quizQuestions[questionCounter]
+                                self.showResult = false
+                                self.hasSelectedAnswer = false
                             }
-                        }, label: {
-                            Text(showResult ? (questionCounter == quizQuestions.count - 1 ? "Finish Attempt" : "Next Question") : "Check Answer")
-                                .font(Font.custom(viewAssets.titleFont, size: 16))
-                                .frame(width: UIScreen.main.bounds.width - 60, height: 50, alignment: .center)
-                                .background(Color(viewAssets.primaryColor))
-                                .accentColor(Color(viewAssets.buttonTextColor))
-                                .cornerRadius(UIScreen.main.bounds.width/35)
-                                .padding(.bottom, UIScreen.main.bounds.height/30)
+                        } else {
+                            updateScore()
+                            self.showResult = true
                         }
-                    )
+                    }
+                }, label: {
+                    Text(showResult ? (questionCounter == lessonViewModel.quiz.quizQuestions.count - 1 ? "Finish Attempt" : "Next Question") : "Check Answer")
+                        .font(Font.custom(viewAssets.titleFont, size: 16))
+                        .frame(width: UIScreen.main.bounds.width - 60, height: 50, alignment: .center)
+                        .background(Color(viewAssets.primaryColor))
+                        .accentColor(Color(viewAssets.buttonTextColor))
+                        .cornerRadius(UIScreen.main.bounds.width/35)
+                        .padding(.bottom, UIScreen.main.bounds.height/30)
                 }
             )
         }
         .padding(.horizontal, 20)
         .onAppear {
-            questionCounter = Int((courseViewModel.getLessonProgress(userId: 1, lessonId: lessonId) * Double(quizQuestions.count)).rounded()) % quizQuestions.count
+            questionCounter = Int((lessonViewModel.getLessonProgress(userId: 1) * Double(lessonViewModel.quiz.quizQuestions.count)).rounded()) % lessonViewModel.quiz.quizQuestions.count
             print(questionCounter)
 //            0.0 -> 0
 //            0.33 -> 1
@@ -131,7 +125,7 @@ struct QuizQuestionView: View {
 //            1.0 -> 0
           
            
-            currentQuestion = quizQuestions[questionCounter]
+            currentQuestion = lessonViewModel.quiz.quizQuestions[questionCounter]
         }
         .navigationBarHidden(true)
     }
