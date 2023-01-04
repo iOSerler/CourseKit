@@ -3,45 +3,40 @@
         "id": "final-quiz",
         "title": "Final Quiz",
         "description": "Solve the quiz to test your knowledge!",
-        "quizData": {
-            "id": 0,
-            "title": "Python Programming",
-            "description": "This Final Quiz will test your knowledge on the topics presented in this course. Make sure you think on the questions well enough. Good Luck 😉",
-            "quizQuestions": [
-                {
-                    "id": 0,
-                    "type": "singleSelect",
-                    "points": 5,
-                    "questionContent": {
-                        "topic": "Tuples",
-                        "question": "There is a tuple of the form T = (4, 2, 3). Which operation will cause the name T to refer to a tuple (1, 2, 3)?",
-                        "answers": ["T[0] = 1", "T = (1) + T[1:]", "T = (1,) + T[1:]", "T.startswith(1)"],
-                        "correctAnswer": ["T = (1,) + T[1:]"]
-                    }
-                },
-                {
-                    "id": 1,
-                    "type": "singleSelect",
-                    "points": 4,
-                    "questionContent": {
-                        "topic": "Python built-in function",
-                        "question": "Why does Python use the enumerate() built-in function?",
-                        "answers": ["To determine the number of elements in a sequence.", "For simultaneous iteration over the elements themselves and their indices.", "To sort elements by id values."],
-                        "correctAnswer": ["For simultaneous iteration over the elements themselves and their indices."]
-                    }
-                },
-                {
-                    "id": 2,
-                    "type": "singleSelect",
-                    "points": 10,
-                    "questionContent": {
-                        "topic": "Python syntax",
-                        "question": "What is a correct syntax to output “Hello World” in Python?",
-                        "answers": ["echo(“Hello World”)", "echo “Hello World”", "print(“Hello World”)", "p(“Hello World”)"],
-                        "correctAnswer": ["print(“Hello World”)"]
-                    }
+        "quizQuestions": [
+            {
+                "id": 0,
+                "type": "singleSelect",
+                "points": 5,
+                "questionContent": {
+                    "topic": "Tuples",
+                    "question": "There is a tuple of the form T = (4, 2, 3). Which operation will cause the name T to refer to a tuple (1, 2, 3)?",
+                    "answers": ["T[0] = 1", "T = (1) + T[1:]", "T = (1,) + T[1:]", "T.startswith(1)"],
+                    "correctAnswer": ["T = (1,) + T[1:]"]
                 }
-            ]
-        }
+            },
+            {
+                "id": 1,
+                "type": "singleSelect",
+                "points": 4,
+                "questionContent": {
+                    "topic": "Python built-in function",
+                    "question": "Why does Python use the enumerate() built-in function?",
+                    "answers": ["To determine the number of elements in a sequence.", "For simultaneous iteration over the elements themselves and their indices.", "To sort elements by id values."],
+                    "correctAnswer": ["For simultaneous iteration over the elements themselves and their indices."]
+                }
+            },
+            {
+                "id": 2,
+                "type": "singleSelect",
+                "points": 10,
+                "questionContent": {
+                    "topic": "Python syntax",
+                    "question": "What is a correct syntax to output “Hello World” in Python?",
+                    "answers": ["echo(“Hello World”)", "echo “Hello World”", "print(“Hello World”)", "p(“Hello World”)"],
+                    "correctAnswer": ["print(“Hello World”)"]
+                }
+            }
+        ]
     },
 ]

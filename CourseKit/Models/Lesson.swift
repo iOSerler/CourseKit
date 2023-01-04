@@ -10,10 +10,26 @@ import Foundation
 struct Lesson: Identifiable, Decodable {
     var id: String
     var type: String
-    var title: String
-    var description: String?
-    var url: String?
+    var titleEn: String
+    var titleRu: String
+    var descriptionEn: String?
+    var descriptionRu: String?
+    var urlEn: String?
+    var urlRu: String?
     var duration: String?
+    
+    var title: String {
+        titleEn
+    }
+    
+    var description: String {
+        descriptionEn ?? ""
+    }
+    
+    var url: String {
+        urlEn ?? ""
+    }
+    
 }
 
 struct VideoLesson: Identifiable, Decodable {

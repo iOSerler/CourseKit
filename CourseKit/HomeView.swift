@@ -14,7 +14,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack{
-            CourseView(courseViewModel: courseViewModel,  settings: settings)
+            CourseView(courseViewModel: courseViewModel,  settings: settings, callbackDict: [:])
                 .navigationTitle("Bismillah")
                 .navigationBarTitleDisplayMode(.inline)
         }

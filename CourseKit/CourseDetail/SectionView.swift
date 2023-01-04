@@ -10,6 +10,8 @@ import SwiftUI
 struct SectionView: View {
     
     var settings: ViewAssets
+    var callbackDict: [String: (()->Void)]
+
     @State var section: CourseSection
     @Binding var showAlert: Bool
     @Binding var progress: Double
@@ -49,7 +51,6 @@ struct SectionView: View {
 
                         }
                     } else if lesson.type == "quiz" {
-                            let lessonVM = LessonViewModel(lesson: lesson)
 
                         NavigationLink(destination: QuizView(lessonViewModel: lessonVM, settings: settings)) {
                             LessonRowView(lessonViewModel: lessonVM, settings: settings)
@@ -62,7 +63,12 @@ struct SectionView: View {
                                 }
                             }
                     } else {
-                        //FIXME: article and page
+                        Button {
+                            callbackDict[lessonVM.lesson.id]?()
+                        } label: {
+                            LessonRowView(lessonViewModel: lessonVM, settings: settings)
+                                .padding(.vertical, 10)
+                        }
                     }
                     Divider()
                 }

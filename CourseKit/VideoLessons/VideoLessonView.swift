@@ -18,7 +18,12 @@ struct VideoLessonView: View {
     init(lessonViewModel: LessonViewModel, settings: ViewAssets) {
         self.lessonViewModel = lessonViewModel
         self.settings = settings
-        self.player = AVPlayer(url: URL(string: lessonViewModel.lesson.url!)!)
+        
+        if let url = URL(string: lessonViewModel.lesson.url) {
+            self.player = AVPlayer(url: url)
+        } else {
+            self.player = AVPlayer()
+        }
     }
     
     var body: some View {

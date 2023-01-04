@@ -16,11 +16,17 @@ struct LessonRowView: View {
     var icon: String {
         switch lessonViewModel.lesson.type {
         case "text":
+            return "doc.richtext"
+        case "article":
             return "doc.text"
+        case "page":
+            return "network"
         case "video":
             return "film"
-        default:
+        case "quiz":
             return "puzzlepiece.extension"
+        default:
+            return ""
         }
     }
     

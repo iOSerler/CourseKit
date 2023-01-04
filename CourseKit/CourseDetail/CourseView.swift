@@ -11,6 +11,7 @@ struct CourseView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
     var settings: ViewAssets
+    var callbackDict: [String: (()->Void)]
     @State var progress: Double = 0.0
     @State var showAlert: Bool = false
     
@@ -59,7 +60,7 @@ struct CourseView: View {
                         
                         
                         ForEach(detail.sections) { section in
-                            SectionView(settings: settings, section: section, showAlert: $showAlert, progress: $progress)
+                            SectionView(settings: settings, callbackDict: callbackDict, section: section, showAlert: $showAlert, progress: $progress)
                         }
                     }
                     Spacer()
@@ -101,8 +102,14 @@ struct CourseView: View {
                         NavigationLink(destination:  QuizView(lessonViewModel: lessonVM, settings: settings), label: {
                             ContinueButton(settings: settings)
                         })
+                        
                     default:
-                        Text("")
+                        Button {
+                            callbackDict[lessonVM.lesson.id]?()
+                        } label: {
+                            ContinueButton(settings: settings)
+                        }
+
                     }
 
                 }

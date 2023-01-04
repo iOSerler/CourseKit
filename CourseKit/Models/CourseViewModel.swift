@@ -15,7 +15,7 @@ class CourseViewModel: ObservableObject {
     }
     
     func loadCourse() {
-        guard let url = Bundle.main.url(forResource: "course", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "Learn", withExtension: "json") else {
             print("course.json file not found")
             return
         }
