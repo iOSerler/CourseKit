@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 15.0, *)
 class UrlImageModel: ObservableObject {
     @Published var image: UIImage?
     var urlString: String?

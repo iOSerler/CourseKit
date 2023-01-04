@@ -8,6 +8,7 @@
 import SwiftUI
 import AVKit
 
+@available(iOS 15.0, *)
 struct VideoLessonView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel

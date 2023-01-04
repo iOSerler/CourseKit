@@ -7,15 +7,22 @@
 
 import SwiftUI
 
-struct CourseView: View {
+@available(iOS 15.0, *)
+public struct CourseView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
     var settings: CourseAssets
-    var callbackDict: [String: (()->Void)]
+    var callbackDict: [String: ((LessonViewModel)->Void)]
     @State var progress: Double = 0.0
     @State var showAlert: Bool = false
     
-    var body: some View {
+    public init(courseViewModel: CourseViewModel, settings: CourseAssets, callbackDict: [String: ((LessonViewModel)->Void)]) {
+        self.courseViewModel = courseViewModel
+        self.settings = settings
+        self.callbackDict = callbackDict
+    }
+    
+    public var body: some View {
         ZStack {
             
             ScrollView(.vertical, showsIndicators: false) {
@@ -60,7 +67,7 @@ struct CourseView: View {
                         
                         
                         ForEach(detail.sections) { section in
-                            SectionView(settings: settings, callbackDict: callbackDict, section: section, showAlert: $showAlert, progress: $progress)
+                            SectionView(courseViewModel: courseViewModel, settings: settings, callbackDict: callbackDict, section: section, showAlert: $showAlert, progress: $progress)
                         }
                     }
                     Spacer()
@@ -105,7 +112,7 @@ struct CourseView: View {
                         
                     default:
                         Button {
-                            callbackDict[lessonVM.lesson.id]?()
+                            callbackDict[lessonVM.lesson.type]?(lessonVM)
                         } label: {
                             ContinueButton(settings: settings)
                         }
@@ -127,12 +134,9 @@ struct CourseView: View {
             }
         }
     }
-    
-    
-    
-    
 }
 
+@available(iOS 15.0, *)
 struct ContinueButton: View {
     
     let settings: CourseAssets

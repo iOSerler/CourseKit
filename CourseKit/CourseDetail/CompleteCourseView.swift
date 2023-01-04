@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct CompleteCourseView: View {
     var settings: CourseAssets
     var courseTitle: String
@@ -47,7 +48,7 @@ struct CompleteCourseView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     
                     HStack(alignment: .firstTextBaseline) {
-                        StarsView(color: Color(viewAssets.primaryColor), rating: Float(completionRate))
+                        StarsView(color: Color(settings.primaryColor), rating: Float(completionRate))
                         Text(String(completionRate))
                             .font(.custom(settings.descriptionFont, size: 14))
                             .foregroundColor(Color(settings.primaryColor))
@@ -95,14 +96,8 @@ struct CompleteCourseView: View {
     }
 }
 
-struct CompleteCourseView_Previews: PreviewProvider {
-    static var previews: some View {
-        CompleteCourseView(settings: viewAssets, courseTitle: "Python Programming", completionRate: 4.5, numPoints: 32)
-    }
-}
 
-
-
+@available(iOS 15.0, *)
 struct StarsView: View {
   private static let MAXRATING: Float = 5
   var color: Color

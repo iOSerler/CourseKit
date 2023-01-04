@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct TextImageLessonView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel
@@ -80,7 +81,7 @@ struct TextImageLessonView: View {
     }
 }
 
-
+@available(iOS 15.0, *)
 struct WillDisappearHandler: UIViewControllerRepresentable {
     func makeCoordinator() -> WillDisappearHandler.Coordinator {
         Coordinator(onWillDisappear: onWillDisappear)
@@ -116,6 +117,7 @@ struct WillDisappearHandler: UIViewControllerRepresentable {
     }
 }
 
+@available(iOS 15.0, *)
 struct WillDisappearModifier: ViewModifier {
     let callback: () -> Void
 
@@ -125,6 +127,7 @@ struct WillDisappearModifier: ViewModifier {
     }
 }
 
+@available(iOS 15.0, *)
 extension View {
     func onWillDisappear(_ perform: @escaping () -> Void) -> some View {
         self.modifier(WillDisappearModifier(callback: perform))

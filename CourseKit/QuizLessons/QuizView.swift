@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct QuizView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel

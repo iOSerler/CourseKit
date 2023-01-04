@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Course: Identifiable, Decodable {
-    var id: Int
+public struct Course: Identifiable, Decodable {
+    public var id: Int
     var titleEn: String
     var titleRu: String
     var shortDescriptionEn: String
@@ -38,8 +38,8 @@ struct Course: Identifiable, Decodable {
     
 }
 
-struct CourseSection: Identifiable, Decodable {
-    var id: String
+public struct CourseSection: Identifiable, Decodable {
+    public var id: String
     var titleEn: String
     var titleRu: String
     var descriptionEn: String

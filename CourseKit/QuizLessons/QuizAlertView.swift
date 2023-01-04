@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct QuizAlertView: View {
     var settings: CourseAssets
     @Binding var showAlert: Bool

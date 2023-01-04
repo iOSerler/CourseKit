@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct QuizQuestionView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel
@@ -106,10 +107,10 @@ struct QuizQuestionView: View {
                     }
                 }, label: {
                     Text(showResult ? (questionCounter == lessonViewModel.quiz.quizQuestions.count - 1 ? "Finish Attempt" : "Next Question") : "Check Answer")
-                        .font(Font.custom(viewAssets.titleFont, size: 16))
+                        .font(Font.custom(settings.titleFont, size: 16))
                         .frame(width: UIScreen.main.bounds.width - 60, height: 50, alignment: .center)
-                        .background(Color(viewAssets.primaryColor))
-                        .accentColor(Color(viewAssets.buttonTextColor))
+                        .background(Color(settings.primaryColor))
+                        .accentColor(Color(settings.buttonTextColor))
                         .cornerRadius(UIScreen.main.bounds.width/35)
                         .padding(.bottom, UIScreen.main.bounds.height/30)
                 }
@@ -139,7 +140,7 @@ struct QuizQuestionView: View {
 }
 
 
-
+@available(iOS 15.0, *)
 struct SingleChoiceButtonList: View {
     var settings: CourseAssets
     let answers: [String]
@@ -178,6 +179,7 @@ struct SingleChoiceButtonList: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct SingleChoiceButtonRow: View {
     var settings: CourseAssets
     let answer: String

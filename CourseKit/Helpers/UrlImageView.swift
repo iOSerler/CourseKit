@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct UrlImageView: View {
     @ObservedObject var urlImageModel: UrlImageModel
     
@@ -20,9 +21,8 @@ struct UrlImageView: View {
             
             if let image = urlImageModel.image {
                 Image(uiImage: image).resizable()
-            }else {
+            } else {
                 Image(systemName: "photo.artframe")
-                    .fontWeight(.ultraLight)
             }
                 
         }
@@ -30,6 +30,7 @@ struct UrlImageView: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct UrlImageView_Previews: PreviewProvider {
     static var previews: some View {
         UrlImageView(urlString: nil)

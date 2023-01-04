@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Lesson: Identifiable, Decodable {
-    var id: String
+public struct Lesson: Identifiable, Decodable {
+    public var id: String
     var type: String
     var titleEn: String
     var titleRu: String
@@ -32,52 +32,53 @@ struct Lesson: Identifiable, Decodable {
     
 }
 
-struct VideoLesson: Identifiable, Decodable {
-    var id: String
+public struct VideoLesson: Identifiable, Decodable {
+    public var id: String
     var title: String
     var description: String
     var stamps: [VideoLessonStamp]?
 }
 
-struct VideoLessonStamp: Decodable {
+public struct VideoLessonStamp: Decodable {
     var seconds: Double
     var textTime: String
     var textDescription: String
 }
 
-struct TextLesson: Identifiable, Decodable {
-    var id: String
+public struct TextLesson: Identifiable, Decodable {
+    public var id: String
     var title: String
     var description: String
     var sections: [TextLessonSection]?
 }
 
-struct TextLessonSection: Identifiable, Decodable {
-    var id: Int
+public struct TextLessonSection: Identifiable, Decodable {
+    public var id: Int
     var title: String
     var data: [TextLessonData]
 }
-struct TextLessonData: Identifiable, Decodable {
-    var id: Int
+
+public struct TextLessonData: Identifiable, Decodable {
+    public var id: Int
     var text: String
     var image: String
 }
 
-struct QuizLesson: Identifiable, Decodable {
-    var id: String
+public struct QuizLesson: Identifiable, Decodable {
+    public var id: String
     var title: String
     var description: String
     var quizQuestions: [QuizQuestion]
 }
 
-struct QuizQuestion: Identifiable, Decodable {
-    var id: Int
+public struct QuizQuestion: Identifiable, Decodable {
+    public var id: Int
     var type: String
     var points: Int
     var questionContent: QuizQuestionContent
 }
 
-struct QuizQuestionContent: Decodable {
+public struct QuizQuestionContent: Decodable {
     var topic: String
     var question: String
     var answers: [String]?

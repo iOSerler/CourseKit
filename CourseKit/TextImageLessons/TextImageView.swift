@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct TextImageView: View {
     var settings: CourseAssets
     var textImage: TextLessonData

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct TextImageLessonSectionView: View {
     var settings: CourseAssets
     @State var section: TextLessonSection

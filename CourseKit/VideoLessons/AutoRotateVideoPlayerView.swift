@@ -8,6 +8,7 @@
 import SwiftUI
 import AVKit
 
+@available(iOS 15.0, *)
 struct AutoRotateVideoPlayerView: View {
     @State private var showFullScreen = false
     @Binding var player: AVPlayer
@@ -32,6 +33,7 @@ struct AutoRotateVideoPlayerView: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct AVPlayerControllerRepresentable: UIViewControllerRepresentable {
     let showFullScreen: Bool
     let player: AVPlayer

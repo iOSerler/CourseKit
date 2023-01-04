@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct LessonRowView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel
@@ -76,13 +77,14 @@ struct LessonRowView: View {
 }
 
 
-
+@available(iOS 15.0, *)
 extension View {
   func onDidAppear(_ perform: @escaping (() -> Void)) -> some View {
     self.modifier(ViewDidAppearModifier(callback: perform))
   }
 }
 
+@available(iOS 15.0, *)
 struct ViewDidAppearModifier: ViewModifier {
   let callback: () -> Void
 
@@ -92,6 +94,7 @@ struct ViewDidAppearModifier: ViewModifier {
   }
 }
 
+@available(iOS 15.0, *)
 struct ViewDidAppearHandler: UIViewControllerRepresentable {
   func makeCoordinator() -> ViewDidAppearHandler.Coordinator {
     Coordinator(onDidAppear: onDidAppear)

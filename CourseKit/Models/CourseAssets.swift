@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CourseAssets {
+public protocol CourseAssets {
     var titleFont: String {get}
     var descriptionFont: String {get}
     var primaryTextColor: UIColor {get}

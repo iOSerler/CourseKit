@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct SectionView: View {
     
+    @ObservedObject var courseViewModel: CourseViewModel
     var settings: CourseAssets
-    var callbackDict: [String: (()->Void)]
+    var callbackDict: [String: ((LessonViewModel)->Void)]
 
     @State var section: CourseSection
     @Binding var showAlert: Bool
@@ -35,7 +37,9 @@ struct SectionView: View {
                 
                 ForEach(section.lessons) { lesson in
                     
-                    let lessonVM = LessonViewModel(lesson: lesson)
+                    // FIXME: switch all navigation to a separate class
+                    
+                    let lessonVM = LessonViewModel(lesson: lesson, storage: courseViewModel.storage)
 
                     if lesson.type == "text" {
 
@@ -64,7 +68,7 @@ struct SectionView: View {
                             }
                     } else {
                         Button {
-                            callbackDict[lessonVM.lesson.id]?()
+                            callbackDict[lessonVM.lesson.type]?(lessonVM)
                         } label: {
                             LessonRowView(lessonViewModel: lessonVM, settings: settings)
                                 .padding(.vertical, 10)

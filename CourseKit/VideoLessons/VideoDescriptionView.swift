@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct VideoDescriptionView: View {
     var settings: CourseAssets
     var title: String

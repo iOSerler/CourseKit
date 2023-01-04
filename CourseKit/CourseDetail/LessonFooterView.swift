@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct LessonFooterView: View {
 //    var footer: LessonFooter = lessonFooter
     var settings: CourseAssets

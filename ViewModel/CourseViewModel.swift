@@ -7,27 +7,15 @@
 
 import Foundation
 
-class CourseViewModel: ObservableObject {
-    @Published var course: Course!
-        
-    init() {
-        loadCourse()
-    }
+@available(iOS 15.0, *)
+public class CourseViewModel: ObservableObject {
     
-    func loadCourse() {
-        guard let url = Bundle.main.url(forResource: "Learn", withExtension: "json") else {
-            print("course.json file not found")
-            return
-        }
-        
-        do {
-            let data = try Data(contentsOf: url)
-            let course = try JSONDecoder().decode(Course.self, from: data)
-            self.course = course
-        } catch {
-            print(#file, #function, error.localizedDescription)
-        }
-        
+    @Published var course: Course
+    let storage: CourseStorage
+
+    public init(storage: CourseStorage) {
+        self.storage = storage
+        self.course = storage.course
     }
     
     func saveCourseProgress(userId: Int) -> Double {
@@ -35,7 +23,7 @@ class CourseViewModel: ObservableObject {
         var counter = 0
         for section in course.sections {
             for lesson in section.lessons {
-                let progress = LessonViewModel(lesson: lesson).getLessonProgress(userId: userId)
+                let progress = LessonViewModel(lesson: lesson, storage: storage).getLessonProgress(userId: userId)
                 sum += progress
                 counter += 1
             }
@@ -59,7 +47,7 @@ class CourseViewModel: ObservableObject {
     func getFirstUnfinishedLesson(for userId: Int) -> LessonViewModel {
         for section in self.course.sections {
             for lesson in section.lessons {
-                let lessonVM = LessonViewModel(lesson: lesson)
+                let lessonVM = LessonViewModel(lesson: lesson, storage: storage)
                 if lessonVM.getLessonProgress(userId: userId) < 1.0 {
                     return lessonVM
                 }
@@ -67,7 +55,7 @@ class CourseViewModel: ObservableObject {
         }
         
         //FIXME: force unwrap
-        return LessonViewModel(lesson: course.sections.first!.lessons.first!)
+        return LessonViewModel(lesson: course.sections.first!.lessons.first!, storage: storage)
     }
 
 }
