@@ -5,9 +5,7 @@
 //  Created by Anna Dluzhinskaya on 20.06.2022.
 //
 
-import Foundation
-import SwiftUI
-
+import UIKit
 
 protocol CourseAssets {
     var titleFont: String {get}
@@ -24,4 +22,3 @@ protocol CourseAssets {
     var buttonTextColor: UIColor {get}
     var borderColor: UIColor {get}
 }
-
