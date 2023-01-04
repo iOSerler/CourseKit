@@ -14,7 +14,7 @@ public struct CourseView: View {
     var settings: CourseAssets
     var callbackDict: [String: ((LessonViewModel)->Void)]
     @State var progress: Double = 0.0
-    @State var showAlert: Bool = false
+    @State var showAlert: Bool = false //FIXME: in what cases do we actually need to show it?
     
     public init(courseViewModel: CourseViewModel, settings: CourseAssets, callbackDict: [String: ((LessonViewModel)->Void)]) {
         self.courseViewModel = courseViewModel
@@ -32,21 +32,21 @@ public struct CourseView: View {
                             .font(.custom(settings.titleFont, size: 28))
                             .foregroundColor(Color(settings.primaryTextColor))
                         
-                        HStack {
-                            Image(systemName: "person")
-                            Text(detail.author)
-                                .font(.custom(settings.descriptionFont, size: 14))
-                                .foregroundColor(Color(settings.secondaryTextColor))
-                            
-                            Image(systemName: "timer")
-                                .padding(.leading, 20)
-                            Text(detail.duration)
-                                .font(.custom(settings.descriptionFont, size: 14))
-                                .foregroundColor(Color(settings.secondaryTextColor))
-                            
-                            Spacer()
-                        }
-                        .padding(.top, 8)
+//                        HStack {
+//                            Image(systemName: "person")
+//                            Text(detail.author)
+//                                .font(.custom(settings.descriptionFont, size: 14))
+//                                .foregroundColor(Color(settings.secondaryTextColor))
+//                            
+//                            Image(systemName: "timer")
+//                                .padding(.leading, 20)
+//                            Text(detail.duration)
+//                                .font(.custom(settings.descriptionFont, size: 14))
+//                                .foregroundColor(Color(settings.secondaryTextColor))
+//                            
+//                            Spacer()
+//                        }
+//                        .padding(.top, 8)
                         
                         HStack(alignment: .center) {
                             
@@ -79,59 +79,58 @@ public struct CourseView: View {
             }
             .onDidAppear {
                 self.progress = courseViewModel.saveCourseProgress(userId: 1)
-                //            self.progress = coursesViewModel.getCourseProgress(userId: 1, courseId: self.course.id)
             }
             
             // FIXME: that's too ugly!
-            VStack {
-                Spacer()
-                if self.progress > 0.9 {
-                    NavigationLink(destination: CompleteCourseView(settings: settings, courseTitle: courseViewModel.course.title, completionRate: (self.progress * 500).rounded()/100, numPoints: 15), label: {
-                        ContinueButton(settings: settings)
+//            VStack {
+//                Spacer()
+//                if self.progress > 0.9 {
+//                    NavigationLink(destination: CompleteCourseView(settings: settings, courseTitle: courseViewModel.course.title, completionRate: (self.progress * 500).rounded()/100, numPoints: 15), label: {
+//                        ContinueButton(settings: settings)
+//
+//                    })
+//                } else {
+//
+//                    let lessonVM = courseViewModel.getFirstUnfinishedLesson(for: 1)
+//
+//                    switch lessonVM.lesson.type {
+//                    case "text":
+//                        NavigationLink(destination:  TextImageLessonView(lessonViewModel: lessonVM, settings: settings), label: {
+//                            ContinueButton(settings: settings)
+//                       })
+//
+//                    case "video":
+//                        NavigationLink(destination:  VideoLessonView(lessonViewModel: lessonVM, settings: settings), label: {
+//                            ContinueButton(settings: settings)
+//                       })
+//
+//                    case "quiz":
+//                        NavigationLink(destination:  QuizView(lessonViewModel: lessonVM, settings: settings), label: {
+//                            ContinueButton(settings: settings)
+//                        })
+//
+//                    default:
+//                        Button {
+//                            callbackDict[lessonVM.lesson.type]?(lessonVM)
+//                        } label: {
+//                            ContinueButton(settings: settings)
+//                        }
+//
+//                    }
+//
+//                }
+//            }
 
-                    })
-                } else {
-                    
-                    let lessonVM = courseViewModel.getFirstUnfinishedLesson(for: 1)
-                    
-                    switch lessonVM.lesson.type {
-                    case "text":
-                        NavigationLink(destination:  TextImageLessonView(lessonViewModel: lessonVM, settings: settings), label: {
-                            ContinueButton(settings: settings)
-                       })
-                        
-                    case "video":
-                        NavigationLink(destination:  VideoLessonView(lessonViewModel: lessonVM, settings: settings), label: {
-                            ContinueButton(settings: settings)
-                       })
-                        
-                    case "quiz":
-                        NavigationLink(destination:  QuizView(lessonViewModel: lessonVM, settings: settings), label: {
-                            ContinueButton(settings: settings)
-                        })
-                        
-                    default:
-                        Button {
-                            callbackDict[lessonVM.lesson.type]?(lessonVM)
-                        } label: {
-                            ContinueButton(settings: settings)
-                        }
-
-                    }
-
-                }
-            }
-
-            if showAlert {
-                ZStack {
-                    Rectangle()
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
-                        .background(Color(uiColor: .systemBackground))
-                        .opacity(0.3)
-                    QuizAlertView(settings: settings, showAlert: $showAlert)
-                }
-                .ignoresSafeArea()
-            }
+//            if showAlert {
+//                ZStack {
+//                    Rectangle()
+//                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+//                        .background(Color(uiColor: .systemBackground))
+//                        .opacity(0.3)
+//                    QuizAlertView(settings: settings, showAlert: $showAlert)
+//                }
+//                .ignoresSafeArea()
+//            }
         }
     }
 }

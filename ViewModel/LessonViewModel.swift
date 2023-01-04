@@ -18,6 +18,10 @@ public class LessonViewModel: ObservableObject {
         self.storage = storage
     }
     
+    public var id: String {
+        lesson.id
+    }
+    
     public var url: String {
         lesson.url
     }

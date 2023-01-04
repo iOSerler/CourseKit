@@ -24,7 +24,7 @@ struct LessonRowView: View {
             return "network"
         case "video":
             return "film"
-        case "quiz":
+        case "quiz", "test":
             return "puzzlepiece.extension"
         default:
             return ""
