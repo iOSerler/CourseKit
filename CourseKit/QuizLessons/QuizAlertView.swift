@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuizAlertView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     @Binding var showAlert: Bool
     var body: some View {
         ZStack {

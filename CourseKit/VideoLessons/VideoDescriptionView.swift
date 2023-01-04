@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VideoDescriptionView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     var title: String
     var duration: String
     var description: String

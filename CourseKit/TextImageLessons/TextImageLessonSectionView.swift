@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TextImageLessonSectionView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     @State var section: TextLessonSection
     
     var body: some View {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LessonFooterView: View {
 //    var footer: LessonFooter = lessonFooter
-    var settings: ViewAssets
+    var settings: CourseAssets
     var body: some View {
         VStack(alignment: .center) {
             

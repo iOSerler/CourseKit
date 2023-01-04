@@ -19,7 +19,7 @@
 		5CA313CC296312F30086169F /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313C0296312F30086169F /* NotificationsView.swift */; };
 		5CA313CF2963131C0086169F /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313CE2963131C0086169F /* CourseViewModel.swift */; };
 		5CA313D1296313260086169F /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D0296313260086169F /* NotificationViewModel.swift */; };
-		5CA313DC296313350086169F /* ViewAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D4296313350086169F /* ViewAssets.swift */; };
+		5CA313DC296313350086169F /* CourseAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D4296313350086169F /* CourseAssets.swift */; };
 		5CA313DE296313350086169F /* NotificationsPermissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D6296313350086169F /* NotificationsPermissionModel.swift */; };
 		5CA313E0296313350086169F /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D8296313350086169F /* NotificationModel.swift */; };
 		5CA313E1296313350086169F /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA313D9296313350086169F /* Course.swift */; };
@@ -76,7 +76,7 @@
 		5CA313C0296312F30086169F /* NotificationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		5CA313CE2963131C0086169F /* CourseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		5CA313D0296313260086169F /* NotificationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
-		5CA313D4296313350086169F /* ViewAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAssets.swift; sourceTree = "<group>"; };
+		5CA313D4296313350086169F /* CourseAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseAssets.swift; sourceTree = "<group>"; };
 		5CA313D6296313350086169F /* NotificationsPermissionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionModel.swift; sourceTree = "<group>"; };
 		5CA313D8296313350086169F /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		5CA313D9296313350086169F /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		5CA313D2296313350086169F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5CA313D4296313350086169F /* ViewAssets.swift */,
+				5CA313D4296313350086169F /* CourseAssets.swift */,
 				5CA313D9296313350086169F /* Course.swift */,
 				5CA314422963F0280086169F /* Lesson.swift */,
 				5CA313CE2963131C0086169F /* CourseViewModel.swift */,
@@ -390,7 +390,7 @@
 				5CA31408296313940086169F /* ScrollViewProportion.swift in Sources */,
 				5CA313DE296313350086169F /* NotificationsPermissionModel.swift in Sources */,
 				5CA313C9296312F30086169F /* NotificationDetailView.swift in Sources */,
-				5CA313DC296313350086169F /* ViewAssets.swift in Sources */,
+				5CA313DC296313350086169F /* CourseAssets.swift in Sources */,
 				5C51D1D52964B80E00B2C631 /* LessonViewModel.swift in Sources */,
 				5CA313FF2963136C0086169F /* AutoRotateVideoPlayerView.swift in Sources */,
 				5CA31412296319E70086169F /* LessonFooterView.swift in Sources */,

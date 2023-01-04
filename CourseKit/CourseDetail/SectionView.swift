@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SectionView: View {
     
-    var settings: ViewAssets
+    var settings: CourseAssets
     var callbackDict: [String: (()->Void)]
 
     @State var section: CourseSection

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListView: View {
-    var pageSettings: ViewAssets
+    var pageSettings: CourseAssets
     var listType: String
     @ObservedObject var notificationViewModel: NotificationViewModel
     
@@ -28,7 +28,7 @@ struct ListView: View {
 }
 
 struct NotEmptyListView: View {
-    var pageSettings: ViewAssets
+    var pageSettings: CourseAssets
     var listType: String
     @ObservedObject var notificationViewModel: NotificationViewModel
     @State var showDetails: Bool = false
@@ -67,7 +67,7 @@ struct NotEmptyListView: View {
 }
 
 struct EmptyListView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     var listType: String
     var body: some View {
         VStack(alignment: .center, spacing: 10) {

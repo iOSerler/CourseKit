@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotificationsView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     @State private var selectedSegment = 0
     @ObservedObject var notificationViewModel: NotificationViewModel
     

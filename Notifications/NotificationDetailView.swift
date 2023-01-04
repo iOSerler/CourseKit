@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotificationDetailView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     @Binding var item: NewsItem?
     var body: some View {
         VStack {

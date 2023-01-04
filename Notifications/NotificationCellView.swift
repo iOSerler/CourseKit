@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotificationCellView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     var item: NewsItem
     var body: some View {
         VStack(alignment: .center) {

@@ -10,7 +10,7 @@ import SwiftUI
 struct TextImageLessonView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel
-    var settings: ViewAssets
+    var settings: CourseAssets
     
     @State private var scrollViewHeight: CGFloat = 0
     @State private var proportion: CGFloat = 0

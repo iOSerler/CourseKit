@@ -10,7 +10,7 @@ import SwiftUI
 struct QuizView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel
-    var settings: ViewAssets
+    var settings: CourseAssets
     var courseProgress: Double = 0.0
     var body: some View {
         

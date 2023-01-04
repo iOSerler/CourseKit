@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CompleteCourseView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     var courseTitle: String
     var completionRate: Double
     var numPoints: Int

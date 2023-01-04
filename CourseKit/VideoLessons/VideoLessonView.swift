@@ -11,11 +11,11 @@ import AVKit
 struct VideoLessonView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel
-    var settings: ViewAssets
+    var settings: CourseAssets
     
     @State var player = AVPlayer()
     
-    init(lessonViewModel: LessonViewModel, settings: ViewAssets) {
+    init(lessonViewModel: LessonViewModel, settings: CourseAssets) {
         self.lessonViewModel = lessonViewModel
         self.settings = settings
         

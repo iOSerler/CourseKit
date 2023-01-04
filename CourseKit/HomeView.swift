@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    var settings: ViewAssets
+    var settings: CourseAssets
     @StateObject var courseViewModel = CourseViewModel()
     
     var body: some View {

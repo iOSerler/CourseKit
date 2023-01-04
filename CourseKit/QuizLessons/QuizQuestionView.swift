@@ -10,7 +10,7 @@ import SwiftUI
 struct QuizQuestionView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel
-    var settings: ViewAssets
+    var settings: CourseAssets
     @State var currentQuestion: QuizQuestion
     @State var questionCounter: Int = 0
     @State var showResult: Bool = false
@@ -21,7 +21,7 @@ struct QuizQuestionView: View {
 
     @Environment(\.presentationMode) var presentationMode
     
-    init(lessonViewModel: LessonViewModel, settings: ViewAssets) {
+    init(lessonViewModel: LessonViewModel, settings: CourseAssets) {
         self.lessonViewModel = lessonViewModel
         self.settings = settings
         //FIXME: force unwrap
@@ -141,7 +141,7 @@ struct QuizQuestionView: View {
 
 
 struct SingleChoiceButtonList: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     let answers: [String]
     let correctAnswer: [String]
     @Binding var chosenAnswer: String
@@ -179,7 +179,7 @@ struct SingleChoiceButtonList: View {
 }
 
 struct SingleChoiceButtonRow: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     let answer: String
     let tapAction: () -> Void
     let chosen: Bool

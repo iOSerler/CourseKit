@@ -11,7 +11,7 @@ struct LessonRowView: View {
     
     @ObservedObject var lessonViewModel: LessonViewModel
     @State var progress: Double = 0.0
-    var settings: ViewAssets
+    var settings: CourseAssets
     
     var icon: String {
         switch lessonViewModel.lesson.type {

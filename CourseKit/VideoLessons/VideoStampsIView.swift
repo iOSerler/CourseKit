@@ -9,7 +9,7 @@ import SwiftUI
 import AVKit
 
 struct VideoStampsIView: View {
-    var settings: ViewAssets
+    var settings: CourseAssets
     var stamps: [VideoLessonStamp]
     @Binding var player: AVPlayer
     var body: some View {

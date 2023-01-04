@@ -10,7 +10,7 @@ import SwiftUI
 struct CourseView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
-    var settings: ViewAssets
+    var settings: CourseAssets
     var callbackDict: [String: (()->Void)]
     @State var progress: Double = 0.0
     @State var showAlert: Bool = false
@@ -135,7 +135,7 @@ struct CourseView: View {
 
 struct ContinueButton: View {
     
-    let settings: ViewAssets
+    let settings: CourseAssets
     
     var body: some View {
         HStack {
