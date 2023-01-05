@@ -25,15 +25,15 @@ public struct Course: Identifiable, Decodable {
     var sections: [CourseSection]
     
     var title: String {
-        titleEn
+        isRussian ? titleRu : titleEn
     }
     
     var shortDescription: String {
-        shortDescriptionEn
+        isRussian ? shortDescriptionRu : shortDescriptionEn
     }
     
     var longDescription: String {
-        longDescriptionEn
+        isRussian ? longDescriptionRu : longDescriptionEn
     }
     
 }
@@ -46,11 +46,11 @@ public struct CourseSection: Identifiable, Decodable {
     var descriptionRu: String
     
     var title: String {
-        titleEn
+        isRussian ? titleRu : titleEn
     }
     
     var description: String {
-        descriptionEn
+        isRussian ? descriptionRu : descriptionEn
     }
     
     

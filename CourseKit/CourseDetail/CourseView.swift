@@ -48,22 +48,22 @@ public struct CourseView: View {
 //                        }
 //                        .padding(.top, 8)
                         
-                        HStack(alignment: .center) {
-                            
-                            ProgressView(value: self.progress * 100, total: 100)
-                                .accentColor(self.progress != 1 ? Color(settings.primaryColor) : Color(.green))
-                                .padding(.trailing, 20)
-                            
-                            Text("\(Int((self.progress * 100).rounded())) %")
-                                .font(.custom(settings.descriptionFont, size: 12))
-                                .foregroundColor(Color(settings.primaryTextColor))
-                                .padding(.trailing, 20)
-                        }
+//                        HStack(alignment: .center) {
+//
+//                            ProgressView(value: self.progress * 100, total: 100)
+//                                .accentColor(self.progress != 1 ? Color(settings.primaryColor) : Color(.green))
+//                                .padding(.trailing, 20)
+//
+//                            Text("\(Int((self.progress * 100).rounded())) %")
+//                                .font(.custom(settings.descriptionFont, size: 12))
+//                                .foregroundColor(Color(settings.primaryTextColor))
+//                                .padding(.trailing, 20)
+//                        }
                         
                         Text(detail.longDescription)
                             .font(.custom(settings.descriptionFont, size: 14))
                             .foregroundColor(Color(settings.secondaryTextColor))
-                            .padding(.top, 4)
+//                            .padding(.top, 4)
                         
                         
                         ForEach(detail.sections) { section in

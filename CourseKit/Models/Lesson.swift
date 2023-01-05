@@ -19,15 +19,15 @@ public struct Lesson: Identifiable, Decodable {
     var duration: String?
     
     var title: String {
-        titleEn
+        isRussian ? titleRu : titleEn
     }
     
     var description: String {
-        descriptionEn ?? ""
+        isRussian ? descriptionRu ?? "" : descriptionEn ?? ""
     }
     
     var url: String {
-        urlEn ?? ""
+        isRussian ? urlRu ?? "" : urlEn ?? ""
     }
     
 }
