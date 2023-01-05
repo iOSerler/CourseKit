@@ -37,7 +37,7 @@ struct QuizQuestionView: View {
                     // save progress
                     print("ON X \(Double(questionCounter) / Double(lessonViewModel.quiz.quizQuestions.count))")
                     
-                    lessonViewModel.saveLessonProgress(userId: 1, progress: (Double(questionCounter) / Double(lessonViewModel.quiz.quizQuestions.count)))
+                    lessonViewModel.saveLessonProgress(userId: "nurios", progress: (Double(questionCounter) / Double(lessonViewModel.quiz.quizQuestions.count)))
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "xmark")
@@ -92,7 +92,7 @@ struct QuizQuestionView: View {
                         if showResult {
                             if self.questionCounter == lessonViewModel.quiz.quizQuestions.count - 1 {
                                 self.isFinished = true
-                                lessonViewModel.saveLessonProgress(userId: 1, progress: 1.0)
+                                lessonViewModel.saveLessonProgress(userId: "nurios", progress: 1.0)
                                 // save progress
                             } else {
                                 self.questionCounter += 1
@@ -118,7 +118,7 @@ struct QuizQuestionView: View {
         }
         .padding(.horizontal, 20)
         .onAppear {
-            questionCounter = Int((lessonViewModel.getLessonProgress(userId: 1) * Double(lessonViewModel.quiz.quizQuestions.count)).rounded()) % lessonViewModel.quiz.quizQuestions.count
+            questionCounter = Int((lessonViewModel.getLessonProgress(userId: "nurios") * Double(lessonViewModel.quiz.quizQuestions.count)).rounded()) % lessonViewModel.quiz.quizQuestions.count
             print(questionCounter)
 //            0.0 -> 0
 //            0.33 -> 1

@@ -13,7 +13,7 @@ public struct CourseView: View {
     @ObservedObject var courseViewModel: CourseViewModel
     var settings: CourseAssets
     var callbackDict: [String: ((LessonViewModel)->Void)]
-    @State var progress: Double = 0.0
+//    @State var progress: Double = 0.0
     @State var showAlert: Bool = false //FIXME: in what cases do we actually need to show it?
     
     public init(courseViewModel: CourseViewModel, settings: CourseAssets, callbackDict: [String: ((LessonViewModel)->Void)]) {
@@ -67,7 +67,14 @@ public struct CourseView: View {
                         
                         
                         ForEach(detail.sections) { section in
-                            SectionView(courseViewModel: courseViewModel, settings: settings, callbackDict: callbackDict, section: section, showAlert: $showAlert, progress: $progress)
+                            SectionView(
+                                courseViewModel: courseViewModel,
+                                settings: settings,
+                                callbackDict: callbackDict,
+                                section: section,
+                                showAlert: $showAlert
+//                                progress: $progress
+                            )
                         }
                     }
                     Spacer()
@@ -77,9 +84,9 @@ public struct CourseView: View {
                 .padding(.bottom, 50)
   
             }
-            .onDidAppear {
-                self.progress = courseViewModel.saveCourseProgress(userId: 1)
-            }
+//            .onDidAppear {
+//                self.progress = courseViewModel.saveCourseProgress(userId: "nurios")
+//            }
             
             // FIXME: that's too ugly!
 //            VStack {

@@ -68,7 +68,7 @@ struct TextImageLessonView: View {
             
         }
         .onWillDisappear {
-            lessonViewModel.saveLessonProgress(userId: 1, progress: self.proportion)
+            lessonViewModel.saveLessonProgress(userId: "nurios", progress: self.proportion)
         }
         .background(
             GeometryReader { geo in

@@ -18,33 +18,18 @@ public class CourseViewModel: ObservableObject {
         self.course = storage.course
     }
     
-    func saveCourseProgress(userId: Int) -> Double {
-        var sum = 0.0
-        var counter = 0
-        for section in course.sections {
-            for lesson in section.lessons {
-                let progress = LessonViewModel(lesson: lesson, storage: storage).getLessonProgress(userId: userId)
-                sum += progress
-                counter += 1
-            }
-        }
-        let key = "course_\(userId)_\(course.id)"
-        UserDefaults.standard.set(sum / Double(counter), forKey: key)
-        return sum / Double(counter)
+    func saveCourseProgress(userId: String) {
+        storage.saveCourseProgress(userId: userId)
     }
     
     
-    func getCourseProgress(userId: Int) -> Double {
-        let key = "course_\(userId)_\(course.id)"
-        let progress = UserDefaults.standard.value(forKey: key)
-        if let progress = progress as? Double {
-            return progress
-        }
-        return 0.0
+    func getCourseProgress(userId: String) -> Double {
+        let progress = storage.getCourseProgress(userId: userId)
+        return progress
     }
     
     
-    func getFirstUnfinishedLesson(for userId: Int) -> LessonViewModel {
+    func getFirstUnfinishedLesson(for userId: String) -> LessonViewModel {
         for section in self.course.sections {
             for lesson in section.lessons {
                 let lessonVM = LessonViewModel(lesson: lesson, storage: storage)

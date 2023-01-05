@@ -22,7 +22,7 @@ public struct Course: Identifiable, Decodable {
     var isSaved: Bool
     var isPopular: Bool
     var author: String
-    var sections: [CourseSection]
+    public var sections: [CourseSection]
     
     var title: String {
         isRussian ? titleRu : titleEn
@@ -54,7 +54,7 @@ public struct CourseSection: Identifiable, Decodable {
     }
     
     
-    var lessons: [Lesson]
+    public var lessons: [Lesson]
 }
 
 

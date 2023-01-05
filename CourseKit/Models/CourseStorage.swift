@@ -14,4 +14,11 @@ public protocol CourseStorage: NSObject {
     var videoLessons: [VideoLesson] {get}
     var textLessons: [TextLesson] {get}
     
+    
+    func saveCourseProgress(userId: String)
+    func getCourseProgress(userId: String) -> Double
+    
+    func saveLessonProgress(userId: String, lessonId: String, progress: Double)
+    func getLessonProgress(userId: String, lessonId: String) -> Double
+        
 }

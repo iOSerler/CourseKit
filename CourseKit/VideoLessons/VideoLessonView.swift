@@ -34,7 +34,7 @@ struct VideoLessonView: View {
                 .onAppear {
                     DispatchQueue.main.async {
                         
-                        let progress = lessonViewModel.getLessonProgress(userId: 1)
+                        let progress = lessonViewModel.getLessonProgress(userId: "nurios")
                         
                         player.seek(to: CMTime(seconds: progress * CMTimeGetSeconds(player.currentItem!.asset.duration), preferredTimescale: player.currentTime().timescale))
                     }
@@ -50,7 +50,7 @@ struct VideoLessonView: View {
                                 return
                             }
                             
-                            lessonViewModel.saveLessonProgress(userId: 1, progress: progress)
+                            lessonViewModel.saveLessonProgress(userId: "nurios", progress: progress)
                         }
                         
                         

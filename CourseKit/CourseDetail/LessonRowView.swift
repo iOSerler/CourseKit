@@ -67,10 +67,9 @@ struct LessonRowView: View {
             
             Spacer()
         }
-        
         .onDidAppear {
             
-                self.progress = lessonViewModel.getLessonProgress(userId: 1)
+                self.progress = lessonViewModel.getLessonProgress(userId: "nurios")
             
         }
     }

@@ -16,7 +16,7 @@ struct SectionView: View {
 
     @State var section: CourseSection
     @Binding var showAlert: Bool
-    @Binding var progress: Double
+//    @Binding var progress: Double
     
     var body: some View {
 
