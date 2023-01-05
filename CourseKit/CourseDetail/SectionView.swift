@@ -26,12 +26,12 @@ struct SectionView: View {
                 Text(section.title)
                     .font(.custom(settings.titleFont, size: 20))
                     .foregroundColor(Color(settings.primaryTextColor))
-                    .padding(.top, 20)
+                    .padding(.top, 10)
                 
                 Text(section.description)
                     .font(.custom(settings.descriptionFont, size: 14))
                     .foregroundColor(Color(settings.secondaryTextColor))
-                    .padding(.top, 4)
+                    .padding(.top, 1)
                     .padding(.bottom, 8)
 
                 

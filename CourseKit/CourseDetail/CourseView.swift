@@ -29,7 +29,7 @@ public struct CourseView: View {
                 VStack(alignment: .leading) {
                     if let detail = courseViewModel.course {
                         Text(detail.title)
-                            .font(.custom(settings.titleFont, size: 28))
+                            .font(.custom(settings.titleFont, size: 31))
                             .foregroundColor(Color(settings.primaryTextColor))
                         
 //                        HStack {
@@ -60,9 +60,9 @@ public struct CourseView: View {
 //                                .padding(.trailing, 20)
 //                        }
                         
-                        Text(detail.longDescription)
-                            .font(.custom(settings.descriptionFont, size: 14))
-                            .foregroundColor(Color(settings.secondaryTextColor))
+//                        Text(detail.longDescription)
+//                            .font(.custom(settings.descriptionFont, size: 14))
+//                            .foregroundColor(Color(settings.secondaryTextColor))
 //                            .padding(.top, 4)
                         
                         
@@ -80,7 +80,7 @@ public struct CourseView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 50)
+                .padding(.top, 16)
                 .padding(.bottom, 50)
   
             }
