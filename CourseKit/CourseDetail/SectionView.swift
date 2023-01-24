@@ -28,12 +28,13 @@ struct SectionView: View {
                     .foregroundColor(Color(settings.primaryTextColor))
                     .padding(.top, 10)
                 
-                Text(section.description)
-                    .font(.custom(settings.descriptionFont, size: 14))
-                    .foregroundColor(Color(settings.secondaryTextColor))
-                    .padding(.top, 1)
-                    .padding(.bottom, 8)
-
+                if !section.description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    Text(section.description)
+                        .font(.custom(settings.descriptionFont, size: 14))
+                        .foregroundColor(Color(settings.secondaryTextColor))
+                        .padding(.top, 1)
+                        .padding(.bottom, 8)
+                }
                 
                 ForEach(section.lessons) { lesson in
                     
