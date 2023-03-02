@@ -70,8 +70,8 @@ struct LessonRowView: View {
             
             Spacer()
             if self.progress > 0 {
-                Text("\(Int((self.progress * 100).rounded())) %")
-                    .font(.custom(settings.descriptionFont, size: 12))
+                Text("\(Int((self.progress * 100).rounded()))%")
+                    .font(.custom(settings.descriptionFont, size: 10))
                     .foregroundColor(Color(settings.primaryTextColor))
                     .frame(width: 22)
                     .padding(.trailing, 20)
