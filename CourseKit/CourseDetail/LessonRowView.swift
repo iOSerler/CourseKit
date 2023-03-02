@@ -33,7 +33,7 @@ struct LessonRowView: View {
     
     var body: some View {
         
-        HStack(alignment: .top) {
+        HStack(alignment: .center) {
             VStack {
                 Image(systemName: icon)
             }
@@ -73,7 +73,7 @@ struct LessonRowView: View {
                 Text("\(Int((self.progress * 100).rounded()))%")
                     .font(.custom(settings.descriptionFont, size: 10))
                     .foregroundColor(Color(settings.primaryTextColor))
-                    .frame(width: 22)
+                    .frame(width: 25)
                     .padding(.trailing, 20)
             }
             
