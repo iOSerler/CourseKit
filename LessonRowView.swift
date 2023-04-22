@@ -40,33 +40,10 @@ struct LessonRowView: View {
             .frame(width: 20)
             .padding(.trailing, 8)
             
-//            VStack(alignment: .leading) {
-//                Text(lessonViewModel.lesson.title)
-//                    .font(.custom(settings.titleFont, size: 14))
-//                    .foregroundColor(Color(settings.primaryTextColor))
-//                if let description = lessonViewModel.lesson.description {
-//                    Text(description)
-//                        .font(.custom(settings.descriptionFont, size: 12))
-//                        .foregroundColor(Color(settings.secondaryTextColor))
-//                        .multilineTextAlignment(.leading)
-//                }
-//
-//                HStack(alignment: .center) {
-//
-//                    ProgressView(value: self.progress * 100, total: 100)
-//                        .accentColor(Int((self.progress * 100).rounded()) != 100 ? Color(settings.primaryColor) : Color(settings.successPrimaryColor))
-//                        .padding(.trailing, 20)
-//
-//                    Text("\(Int((self.progress * 100).rounded())) %")
-//                        .font(.custom(settings.descriptionFont, size: 12))
-//                        .foregroundColor(Color(settings.primaryTextColor))
-//                        .padding(.trailing, 20)
-//                }
-                
-//            }
             Text(lessonViewModel.lesson.title)
             .font(.custom(settings.descriptionFont, size: 16))
             .foregroundColor(Color(settings.primaryTextColor))
+            .multilineTextAlignment(.leading)
             
             Spacer()
             if self.progress > 0 {
@@ -79,9 +56,7 @@ struct LessonRowView: View {
             
         }
         .onAppear {
-            
-                self.progress = lessonViewModel.getLessonProgress(userId: "nurios")
-            
+            self.progress = lessonViewModel.getLessonProgress(userId: "nurios")
         }
     }
 }

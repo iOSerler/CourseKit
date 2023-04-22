@@ -15,8 +15,6 @@ struct SectionView: View {
     var callbackDict: [String: ((LessonViewModel)->Void)]
 
     @State var section: CourseSection
-    @Binding var showAlert: Bool
-//    @Binding var progress: Double
     
     var body: some View {
 
@@ -56,18 +54,11 @@ struct SectionView: View {
 
                         }
                     } else if lesson.type == "quiz" {
-
                         NavigationLink(destination: QuizView(lessonViewModel: lessonVM, settings: settings)) {
                             LessonRowView(lessonViewModel: lessonVM, settings: settings)
                                 .padding(.vertical, 10)
 
                         }
-//                        .disabled(progress >= 0.8 ? false: true)
-//                            .onTapGesture {
-//                                if progress < 0.8 {
-//                                    showAlert.toggle()
-//                                }
-//                        }
                     } else {
                         Button {
                             callbackDict[lessonVM.lesson.type]?(lessonVM)

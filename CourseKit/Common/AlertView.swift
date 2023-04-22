@@ -7,10 +7,27 @@
 
 import SwiftUI
 
+/// use the view in the following way:
+///
+/// if showAlert {
+///     Rectangle()
+///         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+///         .background(Color(uiColor: .systemBackground))
+///         .opacity(0.3)
+///     AlertView(title: "Salam!", description: "Learning is the key to doing things correctly", buttonTitle: "Got it", settings: settings, showAlert: $showAlert)
+///         .ignoresSafeArea()
+/// }
+
 @available(iOS 15.0, *)
-struct QuizAlertView: View {
+struct AlertView: View {
+    
+    let title: String
+    let description: String
+    let buttonTitle: String
+    
     var settings: CourseAssets
     @Binding var showAlert: Bool
+    
     var body: some View {
         ZStack {
             Image(systemName: "rectangle.fill")
@@ -18,28 +35,19 @@ struct QuizAlertView: View {
                 .scaledToFit()
                 .foregroundColor(Color(uiColor: settings.buttonTextColor))
             VStack(alignment: .center, spacing: 20) {
-                Text("Complete the course first")
+                Text(title)
                     .font(.custom(settings.titleFont, size: 19))
                     .foregroundColor(Color(settings.primaryTextColor))
-                Group {
-                    Text("You can not pass the quiz before you complete at least ")
-                        .font(.custom(settings.descriptionFont, size: 15))
-                        .foregroundColor(Color(settings.secondaryTextColor))
-                    +
-                    Text("80% of the course. ")
-                        .font(.custom(settings.descriptionFont, size: 15))
-                        .foregroundColor(Color(settings.primaryColor))
-                    +
-                    Text("Go back and learn a little more and come take quiz.")
-                        .font(.custom(settings.descriptionFont, size: 15))
-                        .foregroundColor(Color(settings.secondaryTextColor))
-                }.multilineTextAlignment(.center)
+                Text(description)
+                    .font(.custom(settings.descriptionFont, size: 15))
+                    .foregroundColor(Color(settings.secondaryTextColor))
+                    .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                 Button(
                     action: {
                         showAlert.toggle()
                     }, label: {
-                        Text("Go Back to Course")
+                        Text(buttonTitle)
                             .font(Font.custom(settings.titleFont, size: 14))
                             .frame(width: UIScreen.main.bounds.height/2.5 - 60, height: 45, alignment: .center)
                             .background(Color(settings.primaryColor))
@@ -52,7 +60,8 @@ struct QuizAlertView: View {
                 
             }
             .padding(.horizontal, UIScreen.main.bounds.width/10)
-        }.frame(width: UIScreen.main.bounds.height/2.5, height: UIScreen.main.bounds.height/2.5, alignment: .center)
+        }
+        .padding(.horizontal, UIScreen.main.bounds.width/10)
         
     }
 }
