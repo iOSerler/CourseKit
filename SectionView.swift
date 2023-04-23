@@ -34,7 +34,7 @@ struct SectionView: View {
                         .padding(.bottom, 8)
                 }
                 
-                ForEach(section.lessons) { lesson in
+                ForEach(section.lessons.filter({$0.isShown > 0})) { lesson in
                     
                     // FIXME: switch all navigation to a separate class
                     

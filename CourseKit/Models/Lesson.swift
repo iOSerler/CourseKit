@@ -17,6 +17,8 @@ public struct Lesson: Identifiable, Decodable {
     var urlEn: String?
     var urlRu: String?
     var duration: String?
+    var showEn: Int
+    var showRu: Int
     
     var title: String {
         isRussian ? titleRu : titleEn
@@ -28,6 +30,10 @@ public struct Lesson: Identifiable, Decodable {
     
     var url: String {
         isRussian ? urlRu ?? "" : urlEn ?? ""
+    }
+    
+    var isShown: Int {
+        isRussian ? showRu : showEn
     }
     
 }
