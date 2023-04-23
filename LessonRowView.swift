@@ -51,7 +51,7 @@ struct LessonRowView: View {
                     .font(.custom(settings.descriptionFont, size: 10))
                     .foregroundColor(Color(settings.primaryTextColor))
                     .frame(width: 25)
-                    .padding(.trailing, 20)
+                    .padding(.trailing, 4)
             }
             
         }
