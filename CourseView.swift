@@ -25,7 +25,7 @@ public struct CourseView: View {
             VStack(alignment: .leading) {
                 if let course = courseViewModel.course {
                     Text(course.title)
-                        .font(.custom(settings.titleFont, size: 31))
+                        .font(.custom(settings.titleFont, size: 30))
                         .foregroundColor(Color(settings.primaryTextColor))
                     
                     ForEach(course.sections) { section in
