@@ -14,18 +14,13 @@ struct TextImageView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if let text = textImage.text {
-                Text(text)
+                Text(textImage.text)
                     .font(.custom(settings.descriptionFont, size: 16))
                     .foregroundColor(Color(settings.primaryTextColor))
                     .padding(.horizontal, 0)
                     .multilineTextAlignment(.leading)
-            }
-            if let image = textImage.image {
-                UrlImageView(urlString: image)
-//                    .resizable()
+                UrlImageView(urlString: textImage.image)
                     .aspectRatio(contentMode: .fit)
-            }
         }
     }
 }

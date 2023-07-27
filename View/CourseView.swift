@@ -23,12 +23,11 @@ public struct CourseView: View {
     public var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
-                if let course = courseViewModel.course {
-                    Text(course.title)
+                    Text(courseViewModel.course.title)
                         .font(.custom(settings.titleFont, size: 30))
                         .foregroundColor(Color(settings.primaryTextColor))
                     
-                    ForEach(course.sections) { section in
+                    ForEach(courseViewModel.course.sections) { section in
                         SectionView(
                             courseViewModel: courseViewModel,
                             settings: settings,
@@ -36,7 +35,7 @@ public struct CourseView: View {
                             section: section
                         )
                     }
-                }
+                
                 Spacer()
             }
             .padding(.horizontal, 20)
