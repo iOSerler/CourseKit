@@ -18,7 +18,7 @@ public protocol CourseStorage: NSObject {
     func saveCourseProgress(userId: String)
     func getCourseProgress(userId: String) -> Double
     
-    func saveLessonProgress(userId: String, lessonId: String, progress: Double)
+    func saveLessonProgress(userId: String, lessonId: String, lessonType: String, progress: Double, startDate: Date)
     func getLessonProgress(userId: String, lessonId: String) -> Double
         
 }

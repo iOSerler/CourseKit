@@ -12,6 +12,7 @@ public class LessonViewModel: ObservableObject {
     
     @Published public var lesson: Lesson
     let storage: CourseStorage
+    private let startDate = Date()
     
     init(lesson: Lesson, storage: CourseStorage) {
         self.lesson = lesson
@@ -47,7 +48,7 @@ public class LessonViewModel: ObservableObject {
     }
     
     func saveLessonProgress(userId: String, progress: Double) {
-        storage.saveLessonProgress(userId: userId, lessonId: lesson.id, progress: progress)
+        storage.saveLessonProgress(userId: userId, lessonId: lesson.id, lessonType: "article", progress: progress, startDate: startDate)
     }
     
     func getLessonProgress(userId: String) -> Double {
