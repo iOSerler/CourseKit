@@ -20,7 +20,7 @@ public struct Lesson: Identifiable, Decodable {
     var showEn: Int
     var showRu: Int
     
-    var title: String {
+    public var title: String {
         isRussian ? titleRu : titleEn
     }
     
