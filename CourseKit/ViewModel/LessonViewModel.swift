@@ -47,12 +47,12 @@ public class LessonViewModel: ObservableObject {
         storage.videoLessons.first(where: {$0.id == lesson.id})!
     }
     
-    func saveLessonProgress(userId: String, progress: Double) {
-        storage.saveLessonProgress(userId: userId, lessonId: lesson.id, lessonType: "article", progress: progress, startDate: startDate)
+    func saveLessonProgress(progress: Double) {
+        storage.saveProgress(lessonId: lesson.id, lessonType: "article", progress: progress, startDate: startDate)
     }
     
-    func getLessonProgress(userId: String) -> Double {
-        let progress = storage.getLessonProgress(userId: userId, lessonId: lesson.id)
+    func getLessonProgress() -> Double {
+        let progress = storage.getLessonProgress(lessonId: lesson.id)
         return progress
     }
     

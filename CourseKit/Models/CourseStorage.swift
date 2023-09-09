@@ -15,10 +15,10 @@ public protocol CourseStorage: NSObject {
     var textLessons: [TextLesson] {get}
     
     
-    func saveCourseProgress(userId: String)
-    func getCourseProgress(userId: String) -> Double
+    func saveCourseProgress()
+    func getCourseProgress() -> Double
     
-    func saveLessonProgress(userId: String, lessonId: String, lessonType: String, progress: Double, startDate: Date)
-    func getLessonProgress(userId: String, lessonId: String) -> Double
+    func saveProgress(lessonId: String, lessonType: String, progress: Double, startDate: Date)
+    func getLessonProgress(lessonId: String) -> Double
         
 }

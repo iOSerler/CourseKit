@@ -18,13 +18,13 @@ public class CourseViewModel: ObservableObject {
         self.course = storage.course
     }
     
-    func saveCourseProgress(userId: String) {
-        storage.saveCourseProgress(userId: userId)
+    func saveCourseProgress() {
+        storage.saveCourseProgress()
     }
     
     
-    func getCourseProgress(userId: String) -> Double {
-        let progress = storage.getCourseProgress(userId: userId)
+    func getCourseProgress() -> Double {
+        let progress = storage.getCourseProgress()
         return progress
     }
     
@@ -33,7 +33,7 @@ public class CourseViewModel: ObservableObject {
         for section in self.course.sections {
             for lesson in section.lessons {
                 let lessonVM = LessonViewModel(lesson: lesson, storage: storage)
-                if lessonVM.getLessonProgress(userId: userId) < 1.0 {
+                if lessonVM.getLessonProgress() < 1.0 {
                     return lessonVM
                 }
             }
