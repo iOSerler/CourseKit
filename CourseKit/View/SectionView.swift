@@ -40,32 +40,11 @@ struct SectionView: View {
                     
                     let lessonVM = LessonViewModel(lesson: lesson, storage: courseViewModel.storage)
 
-                    if lesson.type == "text" {
-
-                        NavigationLink(destination: TextImageLessonView(lessonViewModel: lessonVM, settings: settings)) {
-                            LessonRowView(lessonViewModel: lessonVM, settings: settings)
-                                .padding(.vertical, 10)
-                        }
-                    } else if lesson.type == "video" {
-
-                        NavigationLink(destination: VideoLessonView(lessonViewModel: lessonVM, settings: settings)) {
-                            LessonRowView(lessonViewModel: lessonVM, settings: settings)
-                                .padding(.vertical, 10)
-
-                        }
-                    } else if lesson.type == "quiz" {
-                        NavigationLink(destination: QuizView(lessonViewModel: lessonVM, settings: settings)) {
-                            LessonRowView(lessonViewModel: lessonVM, settings: settings)
-                                .padding(.vertical, 10)
-
-                        }
-                    } else {
-                        Button {
-                            callbackDict[lessonVM.lesson.type]?(lessonVM)
-                        } label: {
-                            LessonRowView(lessonViewModel: lessonVM, settings: settings)
-                                .padding(.vertical, 10)
-                        }
+                    Button {
+                        callbackDict[lessonVM.lesson.type]?(lessonVM)
+                    } label: {
+                        LessonRowView(lessonViewModel: lessonVM, settings: settings)
+                            .padding(.vertical, 10)
                     }
                     Divider()
                 }
