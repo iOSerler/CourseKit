@@ -22,25 +22,9 @@ public class CourseViewModel: ObservableObject {
         storage.saveCourseProgress()
     }
     
-    
     func getCourseProgress() -> Double {
         let progress = storage.getCourseProgress()
         return progress
-    }
-    
-    
-    func getFirstUnfinishedLesson(for userId: String) -> LessonViewModel {
-        for section in self.course.sections {
-            for lesson in section.lessons {
-                let lessonVM = LessonViewModel(lesson: lesson, storage: storage)
-                if lessonVM.getLessonProgress() < 1.0 {
-                    return lessonVM
-                }
-            }
-        }
-        
-        //FIXME: force unwrap
-        return LessonViewModel(lesson: course.sections.first!.lessons.first!, storage: storage)
     }
 
 }

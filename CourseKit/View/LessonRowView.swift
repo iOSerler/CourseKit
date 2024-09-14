@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 15.0, *)
 struct LessonRowView: View {
     
-    @ObservedObject var lessonViewModel: LessonViewModel
+    @ObservedObject var lessonViewModel: LessonRowViewModel
     @State var progress: Double = 0.0
     var settings: CourseAssets
     

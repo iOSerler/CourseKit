@@ -12,7 +12,7 @@ struct SectionView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
     var settings: CourseAssets
-    var callbackDict: [String: ((LessonViewModel)->Void)]
+    var callbackDict: [String: ((LessonRowViewModel)->Void)]
 
     @State var section: CourseSection
     
@@ -38,7 +38,7 @@ struct SectionView: View {
                     
                     // FIXME: switch all navigation to a separate class
                     
-                    let lessonVM = LessonViewModel(lesson: lesson, storage: courseViewModel.storage)
+                    let lessonVM = LessonRowViewModel(lesson: lesson, storage: courseViewModel.storage)
 
                     Button {
                         callbackDict[lessonVM.lesson.type]?(lessonVM)

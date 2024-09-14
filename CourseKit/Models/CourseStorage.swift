@@ -10,15 +10,11 @@ import Foundation
 public protocol CourseStorage: NSObject {
 
     var course: Course {get}
-    var quizLessons: [QuizLesson] {get}
-    var videoLessons: [VideoLesson] {get}
-    var textLessons: [TextLesson] {get}
-    
     
     func saveCourseProgress()
     func getCourseProgress() -> Double
     
-    func saveProgress(lessonId: String, lessonType: String, progress: String, startDate: Date)
-    func getLessonProgress(lessonId: String) -> Double
+    func logActivityProgress(activityId: String, type: String, progress: String, startDate: Date)
+    func getActivityProgress(activityId: String) -> Double
         
 }
