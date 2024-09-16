@@ -12,7 +12,7 @@ struct SectionView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
     var settings: CourseAssets
-    var callbackDict: [String: ((LessonRowViewModel)->Void)]
+    var callbackDict: [String: ((CourseSection, LessonRowViewModel)->Void)]
 
     @State var section: CourseSection
     
@@ -41,7 +41,7 @@ struct SectionView: View {
                     let lessonVM = LessonRowViewModel(lesson: lesson, storage: courseViewModel.storage)
 
                     Button {
-                        callbackDict[lessonVM.lesson.type]?(lessonVM)
+                        callbackDict[lessonVM.lesson.type]?(section, lessonVM)
                     } label: {
                         LessonRowView(lessonViewModel: lessonVM, settings: settings)
                             .padding(.vertical, 10)

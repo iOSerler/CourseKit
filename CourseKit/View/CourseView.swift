@@ -12,9 +12,9 @@ public struct CourseView: View {
     
     @ObservedObject var courseViewModel: CourseViewModel
     var settings: CourseAssets
-    var callbackDict: [String: ((LessonRowViewModel)->Void)]
+    var callbackDict: [String: ((CourseSection, LessonRowViewModel)->Void)]
     
-    public init(courseViewModel: CourseViewModel, settings: CourseAssets, callbackDict: [String: ((LessonRowViewModel)->Void)]) {
+    public init(courseViewModel: CourseViewModel, settings: CourseAssets, callbackDict: [String: ((CourseSection, LessonRowViewModel)->Void)]) {
         self.courseViewModel = courseViewModel
         self.settings = settings
         self.callbackDict = callbackDict
