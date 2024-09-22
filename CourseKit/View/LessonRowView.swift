@@ -16,7 +16,7 @@ struct LessonRowView: View {
     
     var icon: String {
         switch lessonViewModel.lesson.type {
-        case "text":
+        case "text", "dynamic":
             return "doc.richtext"
         case "article":
             return "doc.text"
